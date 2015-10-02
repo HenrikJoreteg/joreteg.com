@@ -1,0 +1,26 @@
+{
+  "name": "posts.joreteg.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel-node build",
+    "stage": "surge -p public -d joreteg-stage.surge.sh"
+  },
+  "author": "Henrik Joreteg <henrik@joreteg.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.4.2",
+    "babel": "^5.8.23",
+    "fs-extra": "^0.24.0",
+    "marked": "^0.3.5",
+    "meta-marked": "^0.3.4",
+    "rasta": "^0.1.2",
+    "readify": "^1.3.0",
+    "recursive-readdir": "^1.2.1",
+    "slugger": "^1.0.1",
+    "surge": "^0.15.0",
+    "walk": "^2.3.9"
+  }
+}

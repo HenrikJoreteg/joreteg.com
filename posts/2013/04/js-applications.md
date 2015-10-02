@@ -1,0 +1,19 @@
+<!--
+slug: js-applications
+date: Tue Apr 30 2013 23:32:00 GMT+0200 (CEST)
+tags: crazy, idea
+title: JS applications
+id: 49303786048
+link: http://joreteg.com/post/49303786048/js-applications
+raw: {"blog_name":"henrikjoreteg","id":49303786048,"post_url":"http://joreteg.com/post/49303786048/js-applications","slug":"js-applications","type":"text","date":"2013-04-30 21:32:00 GMT","timestamp":1367357520,"state":"published","format":"markdown","reblog_key":"jBmMzmyA","tags":["crazy","idea"],"short_url":"http://tmblr.co/ZgL_Yyjwl190","recommended_source":null,"recommended_color":null,"highlighted":[],"note_count":0,"title":"JS applications","body":"<p>Crazy, random thought: Just think if you could serve a JS file with a content type of &ldquo;application/javascript&rdquo; and just have the browser treat it as the the equivalent of doing this:</p>\n\n<pre><code>&lt;!DOCTYPE html&gt;\n&lt;script src=\"/the_application.js\" type=\"text/javascript\"&gt;&lt;/script&gt;\n</code></pre>\n\n<p>That would certainly help clarify the distinction between a clientside app and a server side one.</p>","reblog":{"tree_html":"","comment":"<p>Crazy, random thought: Just think if you could serve a JS file with a content type of “application/javascript” and just have the browser treat it as the the equivalent of doing this:</p>\n\n<pre><code><!DOCTYPE html>\n<script src=\"/the_application.js\" type=\"text/javascript\"></script>\n</code></pre>\n\n<p>That would certainly help clarify the distinction between a clientside app and a server side one.</p>"},"trail":[{"blog":{"name":"henrikjoreteg","active":true,"theme":{"header_full_width":1500,"header_full_height":500,"header_focus_width":676,"header_focus_height":380,"avatar_shape":"circle","background_color":"#F6F6F6","body_font":"Helvetica Neue","header_bounds":"0,1249,380,573","header_image":"http://static.tumblr.com/df7befc8b0387cf597578e613c221cb3/uzkwgdq/FAjnt7hyg/tumblr_static_agmw2bdhkjs4ws4sscw44swgc.jpg","header_image_focused":"http://static.tumblr.com/df7befc8b0387cf597578e613c221cb3/uzkwgdq/1oSnt7hyh/tumblr_static_tumblr_static_agmw2bdhkjs4ws4sscw44swgc_focused_v3.jpg","header_image_scaled":"http://static.tumblr.com/df7befc8b0387cf597578e613c221cb3/uzkwgdq/FAjnt7hyg/tumblr_static_agmw2bdhkjs4ws4sscw44swgc_2048_v2.jpg","header_stretch":true,"link_color":"#529ECC","show_avatar":true,"show_description":true,"show_header_image":true,"show_title":true,"title_color":"#444444","title_font":"Helvetica Neue","title_font_weight":"bold"}},"post":{"id":"49303786048"},"content_raw":"<p>Crazy, random thought: Just think if you could serve a JS file with a content type of “application/javascript” and just have the browser treat it as the the equivalent of doing this:</p>\n\n<pre><code><!DOCTYPE html>\n<script src=\"/the_application.js\" type=\"text/javascript\"></script>\n</code></pre>\n\n<p>That would certainly help clarify the distinction between a clientside app and a server side one.</p>","content":"<p>Crazy, random thought: Just think if you could serve a JS file with a content type of “application/javascript” and just have the browser treat it as the the equivalent of doing this:</p>\n\n<pre><code>&lt;!DOCTYPE html&gt;\n<p><a href=\"#\"><img src=\"http://assets.tumblr.com/images/inline_placeholder.png\" width=\"18\" height=\"14\"/></a></p>\n</code></pre>\n\n<p>That would certainly help clarify the distinction between a clientside app and a server side one.</p>","is_current_item":true,"is_root_item":true}]}
+publish: 2013-04-030
+-->
+
+
+<p>Crazy, random thought: Just think if you could serve a JS file with a content type of &ldquo;application/javascript&rdquo; and just have the browser treat it as the the equivalent of doing this:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;script src="/the_application.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>That would certainly help clarify the distinction between a clientside app and a server side one.</p>

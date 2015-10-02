@@ -1,0 +1,43 @@
+---
+slug: forcing-html5-support-in-ie8
+type: text
+date: 2009-09-23 01:57:00 GMT
+title: "Forcing HTML5 support in IE8!"
+old_url: http://joreteg.com/post/194611613/forcing-html5-support-in-ie8
+...
+
+<p>** UPDATE: this plugin works for IE6, IE7 and IE8, not just IE8 as this article suggests **</p>
+
+<p>Every web-developer knows how hard IE sux. IE8 is at least somewhat standards compliant, but I&rsquo;d be willing to bet that they&rsquo;re going to drag their feet in implementing all the HTML5 awesomeness that makes the web even more promising than it already is.</p>
+
+<p>It&rsquo;s not a perfect solution, but the boys at Google wrote an IE8 plugin called <a href="http://code.google.com/chrome/chromeframe/developers_guide.html">Chrome Frame</a> that uses Chrome&rsquo;s rendering engine (Webkit) to render certain pages. As a dev you can sniff for it and prompt them to install it if it&rsquo;s not there. Here&rsquo;s the magic:</p>
+
+<p><code>&lt;meta http-equiv="X-UA-Compatible" content="chrome=1"/&gt;</code></p>
+
+<p>Adding this meta tag will tell IE8 to render the page with Chrome Frame if the plugin is installed.</p>
+
+<p>However, since most IE8 users won&rsquo;t have it installed, (at least at this point) simply adding that tag won&rsquo;t help you too much. So you need to sniff for it and you can prompt the user to install the plugin if it&rsquo;s not present:</p>
+
+<pre><code>&lt;body&gt;
+&lt;script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/chromeframe/1/CFInstall.min.js"&gt;
+&lt;/script&gt;
+
+&lt;div id="placeholder"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    CFInstall.check({
+        node: "placeholder",
+        destination: "http://www.waikiki.com"
+    });
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>You can modify how to prompt the user by changing the configuration, just refer to the <a href="http://code.google.com/chrome/chromeframe/developers_guide.html#CFInstall_check_Options">developer documentation</a>. I for one am quite excited about this because it&rsquo;s a way to circumvent Microsoft&rsquo;s slowness in adopting HTML5 and users will simply be prompted to install a plugin, which is an experience they&rsquo;re already used to for flash sites, etc.</p>
+
+<p>Obviously this doesn&rsquo;t help us for IE 6 and 7 but odds are pretty good that when Windows 7 is released we&rsquo;ll see a significant boost in IE8 usage. I, for one, plan on building a bunch of stuff that requires HTML5 support so any expansion in support for that in &ldquo;Microsoft land&rdquo; is exciting to me.</p>
+
+<p>Also, here&rsquo;s the <a href="http://googlecode.blogspot.com/2009/09/introducing-google-chrome-frame.html">announcement</a> and the official explanation vid:</p>
+
+<p><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/sjW0Bchdj-w&amp;color1=0xb1b1b1&amp;color2=0xcfcfcf&amp;feature=player_embedded&amp;fs=1"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/sjW0Bchdj-w&amp;color1=0xb1b1b1&amp;color2=0xcfcfcf&amp;feature=player_embedded&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="425" height="344"></embed></object></p>

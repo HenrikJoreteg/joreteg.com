@@ -1,0 +1,22 @@
+<!--
+slug: adding-human-element-to-your-apps
+date: Wed Apr 29 2009 17:26:18 GMT+0200 (CEST)
+tags: web design
+title: Great tips on adding a human element to your sites/products/apps
+id: 101484631
+link: http://joreteg.com/post/101484631/adding-human-element-to-your-apps
+raw: {"blog_name":"henrikjoreteg","id":101484631,"post_url":"http://joreteg.com/post/101484631/adding-human-element-to-your-apps","slug":"adding-human-element-to-your-apps","type":"link","date":"2009-04-29 15:26:18 GMT","timestamp":1241018778,"state":"published","format":"html","reblog_key":"vBD6mKEy","tags":["web design"],"short_url":"http://tmblr.co/ZgL_Yy638XN","recommended_source":null,"recommended_color":null,"highlighted":[],"note_count":0,"title":"Great tips on adding a human element to your sites/products/apps","url":"http://www.lukew.com/ff/entry.asp?808","link_author":null,"excerpt":null,"publisher":"lukew.com","description":"<p>This is form design guru <a href=\"http://www.lukew.com/ff/about.asp\">Luke Wroblewski&rsquo;s</a> summary of a talk given by Bill DeRouchey from the 2009 Wep App Summit in Newport Beach, CA.</p>\n\n<p>Simple, take-home tips for giving your apps a bit of much-needed personality. Too many apps are boring and &ldquo;stuffy&rdquo; make it personal, make it fun and people will like it.</p>","reblog":{"tree_html":"","comment":"<p>This is form design guru <a href=\"http://www.lukew.com/ff/about.asp\">Luke Wroblewski’s</a> summary of a talk given by Bill DeRouchey from the 2009 Wep App Summit in Newport Beach, CA.</p>\n\n<p>Simple, take-home tips for giving your apps a bit of much-needed personality. Too many apps are boring and “stuffy” make it personal, make it fun and people will like it.</p>"},"trail":[{"blog":{"name":"henrikjoreteg","active":true,"theme":{"header_full_width":1500,"header_full_height":500,"header_focus_width":676,"header_focus_height":380,"avatar_shape":"circle","background_color":"#F6F6F6","body_font":"Helvetica Neue","header_bounds":"0,1249,380,573","header_image":"http://static.tumblr.com/df7befc8b0387cf597578e613c221cb3/uzkwgdq/FAjnt7hyg/tumblr_static_agmw2bdhkjs4ws4sscw44swgc.jpg","header_image_focused":"http://static.tumblr.com/df7befc8b0387cf597578e613c221cb3/uzkwgdq/1oSnt7hyh/tumblr_static_tumblr_static_agmw2bdhkjs4ws4sscw44swgc_focused_v3.jpg","header_image_scaled":"http://static.tumblr.com/df7befc8b0387cf597578e613c221cb3/uzkwgdq/FAjnt7hyg/tumblr_static_agmw2bdhkjs4ws4sscw44swgc_2048_v2.jpg","header_stretch":true,"link_color":"#529ECC","show_avatar":true,"show_description":true,"show_header_image":true,"show_title":true,"title_color":"#444444","title_font":"Helvetica Neue","title_font_weight":"bold"}},"post":{"id":"101484631"},"content_raw":"<p>This is form design guru <a href=\"http://www.lukew.com/ff/about.asp\">Luke Wroblewski’s</a> summary of a talk given by Bill DeRouchey from the 2009 Wep App Summit in Newport Beach, CA.</p>\n\n<p>Simple, take-home tips for giving your apps a bit of much-needed personality. Too many apps are boring and “stuffy” make it personal, make it fun and people will like it.</p>","content":"<p>This is form design guru <a href=\"http://www.lukew.com/ff/about.asp\">Luke Wroblewski’s</a> summary of a talk given by Bill DeRouchey from the 2009 Wep App Summit in Newport Beach, CA.</p>\n\n<p>Simple, take-home tips for giving your apps a bit of much-needed personality. Too many apps are boring and “stuffy” make it personal, make it fun and people will like it.</p>","is_current_item":true,"is_root_item":true}],"body":"<a href=\"http://www.lukew.com/ff/entry.asp?808\">http://www.lukew.com/ff/entry.asp?808</a>\n\n<p>This is form design guru <a href=\"http://www.lukew.com/ff/about.asp\">Luke Wroblewski&rsquo;s</a> summary of a talk given by Bill DeRouchey from the 2009 Wep App Summit in Newport Beach, CA.</p>\n\n<p>Simple, take-home tips for giving your apps a bit of much-needed personality. Too many apps are boring and &ldquo;stuffy&rdquo; make it personal, make it fun and people will like it.</p>"}
+publish: 2009-04-029
+-->
+
+
+<http://www.lukew.com/ff/entry.asp?808>
+
+This is form design guru [Luke
+Wroblewski’s](http://www.lukew.com/ff/about.asp) summary of a talk given
+by Bill DeRouchey from the 2009 Wep App Summit in Newport Beach, CA.
+
+Simple, take-home tips for giving your apps a bit of much-needed
+personality. Too many apps are boring and “stuffy” make it personal,
+make it fun and people will like it.
+

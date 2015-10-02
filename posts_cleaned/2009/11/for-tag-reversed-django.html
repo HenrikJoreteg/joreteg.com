@@ -1,0 +1,24 @@
+---
+slug: for-tag-reversed-django
+type: text
+date: 2009-11-18 04:58:00 GMT
+title: "The Djangonauts thought of everything: {% for %} tag, reversed"
+old_url: http://joreteg.com/post/248088892/for-tag-reversed-django
+...
+
+<p>I can&rsquo;t tell you how often I&rsquo;ve hit a snag while building something in Django, only to find out that a solution to my problem is already part of the framework. Here&rsquo;s one such example:</p>
+
+<p>I&rsquo;m passing a list of &ldquo;Program&rdquo; objects to the template and need to loop through them in the template. In a single request I&rsquo;m outputting a fairly complex html file that I&rsquo;m using to display multiple &ldquo;pages&rdquo; within a  jQTouch app. That may sound strange unless your familiar with jQTouch. You see, the thing is, I want to do as few server requests as possible since having to use the iPhone&rsquo;s data connection takes away from the super fast &ldquo;native&rdquo; feel that you can achieve with a pre-loaded app in jQTouch.</p>
+
+<p>The reason is irrelevant, but in one part of the template I need this list sorted in descending order, and in another part of the same template I want to loop through the same list in ascending order. Obviously passing the same list twice in different orders seems unnecessary.</p>
+
+<p>After some digging, I realized all I have to do is tack-on a &ldquo;reversed&rdquo; argument to the &ldquo;for&rdquo; tag.</p>
+
+<pre><code>&lt;ul&gt;
+    {% for program in programs reversed %}
+    &lt;li&gt;{{ program.name }}&lt;/li&gt;
+    {% endfor %}
+&lt;/ul&gt;
+</code></pre>
+
+<p>Problem solved. So sweet&hellip; I &lt;3 Django!</p>

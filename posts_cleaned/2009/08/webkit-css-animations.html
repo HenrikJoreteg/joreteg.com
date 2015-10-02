@@ -1,0 +1,55 @@
+---
+slug: webkit-css-animations
+type: text
+date: 2009-08-07 02:27:00 GMT
+title: "Playing around with CSS animations in WebKit"
+old_url: http://joreteg.com/post/157587869/webkit-css-animations
+...
+
+<p>NOTE: This will only work on webkit based browsers like <a href="http://www.apple.com/safari">Safari</a> or <a href="http://www.google.com/chrome">Chrome</a>.</p>
+
+<p>If you mouse over the blue &ldquo;RSS&rdquo; button below (which conveniently happens to be a link to my blog feed). You should see something cool.
+<style>
+a#rss_demo_button {
+    width: 43px;
+    height: 23px;
+    margin: 30px 200px;
+    font-size: 18px;
+    background: #6498CC;
+    color: white;
+    padding: 5px 3px;
+    line-height: 23px;
+    text-decoration: none;
+    text-align: center;
+    position: absolute;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-transition: all 2s ease-out;
+}
+a#rss_demo_button:hover, a#rss_demo_button:focus {
+    -webkit-transform: scale(1.50) rotate(-360deg);
+}
+div#demo_container {
+    width:100%;
+    height: 100px;
+}
+</style></p>
+
+<div id="demo_container"><a href="http://feeds.feedburner.com/joretegdotcom" id="rss_demo_button">RSS</a></div>
+
+<p>You should see the button spin and zoom when you mouse over. A bit corny, yes, but the cool thing is that it&rsquo;s done with absolutely zero JavaScript. It&rsquo;s all CSS!</p>
+
+<p>It may seem pointless just because only webkit browsers support it. But it&rsquo;s actually something you can use as a <a href="http://en.wikipedia.org/wiki/Progressive_enhancement">progressive enhancement</a> since other browsers will just ignore it.</p>
+
+<p>The magic all happens in the following two lines:</p>
+
+<pre><code>a#rss_demo_button{
+    position:absolute;
+    -webkit-transition: all 2s ease-out;
+}
+a#rss_demo_button:hover, a#rss_demo_button:focus {
+    -webkit-transform: scale(1.50) rotate(-360deg);
+}
+</code></pre>
+
+<p>The <code>-webkit-trasition</code> sets how transformations will take place, and the second statement adds the transformation effect on <code>focus</code> and <code>hover</code>. I&rsquo;m still digging deeper into all of this, so right now that&rsquo;s all I&rsquo;ve got. But play around with it, there&rsquo;s a lot more that can be done with this stuff. If you&rsquo;ve done something cool with it. Throw a link in the comments.</p>

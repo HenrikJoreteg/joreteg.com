@@ -1,0 +1,29 @@
+---
+slug: using-form-labels-as-input-values-jquery
+type: text
+date: 2009-03-04 08:00:00 GMT
+title: "Using Form Labels as Input Values with jQuery"
+old_url: http://joreteg.com/post/98750890/using-form-labels-as-input-values-jquery
+...
+
+<p>I recently modified the comment forms on this site. Rather than having a separate label and input field, I used jQuery to put the contents of the label tags inside the inputs themselves.</p>
+
+<p>This gives me the desired effect without impacting accessibility, since the label elements are still there. It simply means that if there is no Javascript support it still functions as expected. Another example of <a href="http://www.alistapart.com/articles/understandingprogressiveenhancement">progressive enhancement</a> at work.</p>
+
+<p>Why waste space with labels? I think it gives a nice clean look. I&rsquo;m thinking about refining this idea and bundling it into a jQuery plugin.</p>
+
+<p>What do you think? Do you like it? Does it cause usability problems? I&rsquo;m open to feedback. If you want to see the source code, you can <a href="http://github.com/HenrikJoreteg/jquery-magic-labels/tree/master">check out the project on GitHub</a>. Just be advised, I&rsquo;m relatively new to jQuery and JavaScript, there may be better ways to do this&hellip; I&rsquo;m all ears.</p>
+
+<p>**Update 3/6/2009: ** I revisited it to make it more generic. Also, it&rsquo;s minified so it&rsquo;s harder to review.  But feel free to download it and test it.  All you have to do to use it is to add it to is add the script and jQuery to your page and call &ldquo;initMagicLabels();&rdquo; it takes a jQuery selector to identify which form(s) you want it to apply to.</p>
+
+<p>If you want it to apply to every form on the page, just pass it &ldquo;form&rdquo; as an argument. You can also do the id of the form for example:</p>
+
+<pre><code>initMagicLabels("#myForm"); 
+</code></pre>
+
+<p>or a class:</p>
+
+<pre><code>initMagicLabels(".myFormClass");
+</code></pre>
+
+<p>Enjoy!</p>
