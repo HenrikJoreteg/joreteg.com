@@ -4,23 +4,40 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel-node build",
-    "stage": "surge -p public -d joreteg-stage.surge.sh"
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "stage": "surge -p public -d joreteg-stage.surge.sh",
+    "getdata": "babel-node lib/extract-data"
   },
   "author": "Henrik Joreteg <henrik@joreteg.com>",
   "license": "MIT",
   "dependencies": {
     "async": "^1.4.2",
+    "autoprefixer": "^6.0.3",
     "babel": "^5.8.23",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.19.0",
+    "file-loader": "^0.8.4",
     "fs-extra": "^0.24.0",
+    "hjs-webpack": "^2.13.2",
+    "json-loader": "^0.5.3",
+    "load-script": "^1.0.0",
     "marked": "^0.3.5",
     "meta-marked": "^0.3.4",
-    "rasta": "^0.1.2",
+    "postcss-loader": "^0.6.0",
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1",
+    "react-hot-loader": "^1.3.0",
     "readify": "^1.3.0",
     "recursive-readdir": "^1.2.1",
     "slugger": "^1.0.1",
+    "style-loader": "^0.12.4",
+    "stylus-loader": "^1.3.1",
     "surge": "^0.15.0",
-    "walk": "^2.3.9"
+    "url-loader": "^0.5.6",
+    "walk": "^2.3.9",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0",
+    "yeticss": "^7.0.5"
   }
 }

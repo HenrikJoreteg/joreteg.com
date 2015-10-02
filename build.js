@@ -1,12 +1,7 @@
 import fs from 'fs-extra'
-import recursive from 'recursive-readdir'
 import async from 'async'
-import marked from 'marked'
-import metaMarked from 'meta-marked'
-import slugger from 'slugger'
 
 const buildDir = __dirname + '/public'
-const srcDir = __dirname + '/posts_cleaned'
 
 // add header link a. la. github
 var renderer = new marked.Renderer()
