@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import Header from './header'
 import Post from './post'
 import './styles/main.styl'
@@ -14,13 +15,17 @@ export default class Index extends Component {
       const latest = posts.slice(-5).reverse()
       page = (
         <section className='recent-posts'>
-          <h3>Recent Posts</h3>
-          {latest.map(post =>
-            <article>
-              <h1><a href={post.url}>{post.title}</a></h1>
-              <div className='preview' dangerouslySetInnerHTML={{__html: post.preview}}></div>
-            </article>
-          )}
+          {latest.map(post => {
+            let date = moment(post.date)
+            return (
+              <article>
+                <time dateTime={date.format('YYYY-MM-DD HH:mm')}>{date.format('D MMM YYYY')}</time>
+                <h1><a href={post.url}>{post.title}</a></h1>
+                <div className='preview' dangerouslySetInnerHTML={{__html: post.preview}}></div>
+                <a href={post.url}>keep reading »</a>
+              </article>
+            )
+          })}
         </section>
       )
     }

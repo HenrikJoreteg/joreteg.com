@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import loadScript from 'load-script'
+import moment from 'moment'
 
 export default class Post extends Component {
 
@@ -22,6 +23,8 @@ export default class Post extends Component {
     let twitterUrl = `http://www.twitter.com/share?url=${post.url}&amp;text=${post.title}`
 
     let date = post.last_updated || post.date
+
+    date = moment(date).format('D MMM YYYY')
 
     return (
       <article className='post-wrapper'>
