@@ -7,7 +7,7 @@ export default class Post extends Component {
   render () {
     const { post } = this.props
 
-    if (post.scripts && post.scripts.length) {
+    if (post.scripts && post.scripts.length && typeof document !== 'undefined') {
       post.scripts.forEach(url => loadScript(url))
     }
 

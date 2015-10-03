@@ -1,5 +1,5 @@
 {
-  "name": "posts.joreteg.com",
+  "name": "joreteg.com",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -26,8 +26,7 @@
     "meta-marked": "^0.3.4",
     "moment": "^2.10.6",
     "postcss-loader": "^0.6.0",
-    "react": "^0.14.0-rc1",
-    "react-dom": "^0.14.0-rc1",
+    "react": "^0.13.0",
     "react-hot-loader": "^1.3.0",
     "readify": "^1.3.0",
     "recursive-readdir": "^1.2.1",
