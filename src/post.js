@@ -40,6 +40,7 @@ export default class Post extends Component {
           <ul>
             <li><a href='http://twitter.com/henrikjoreteg'>follow me on twitter</a></li>
             <li><a href='http://consulting.joreteg.com'>read about my consulting services</a></li>
+            <li><a href='http://read.humanjavascript.com'>check out my book</a></li>
             <li><a href='/blog/all'>see my other posts</a></li>
             <li><a href='https://gumroad.com/henrikjoreteg/follow'>get an email when I ship new stuff</a></li>
           </ul>
