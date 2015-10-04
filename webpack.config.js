@@ -28,20 +28,21 @@ module.exports = webpackConfig({
   serveCustomHtmlInDev: false,
   hostname: 'odin.local',
   html: function (context) {
-    function render (el, scripts) {
+    function render (el, title, scripts) {
       var contentHtml = React.renderToStaticMarkup(el)
       scripts = renderScripts(scripts)
-      return '<!doctype html><head><meta charset="utf-8"/><title>Henrik Joreteg, JavaScript Consultant</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><link href="/' + context.css + '" rel="stylesheet"/>' + links + '</head><body>' + contentHtml + scripts + analytics + '</body>'
+      title || (title = 'Henrik Joreteg\'s Blog')
+      return '<!doctype html><head><meta charset="utf-8"/><title>' + title + '</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><link href="/' + context.css + '" rel="stylesheet"/>' + links + '</head><body>' + contentHtml + scripts + analytics + '</body>'
     }
 
     var result = {
       'index.html': render(React.createElement(App, {url: '/', posts: data.posts})),
-      '404.html': render(React.createElement(App, {url: '/404', posts: data.posts})),
-      'blog/all.html': render(React.createElement(App, {url: '/blog/all', posts: data.posts}))
+      '404.html': render(React.createElement(App, {url: '/404', posts: data.posts}), '404 - Not found'),
+      'blog/all.html': render(React.createElement(App, {url: '/blog/all', posts: data.posts}), 'Henrik\'s Blog, all posts')
     }
 
     var feed = new RSS({
-      title: 'Henrik Joreteg\'s blog, joreteg.com',
+      title: 'Henrik Joreteg\'s Blog',
       description: 'Mobile web consultant, developer, and speaker',
       generator: 'node.js, sucka!',
       feed_url: 'https://joreteg.com/rss',
@@ -54,7 +55,7 @@ module.exports = webpackConfig({
     })
 
     data.posts.forEach(function (post, index) {
-      result[post.outputFile] = render(React.createElement(App, {url: post.url, posts: data.posts}), post.scripts)
+      result[post.outputFile] = render(React.createElement(App, {url: post.url, posts: data.posts}), post.title, post.scripts)
       // only add last 10 items to RSS
       if (index < 10) {
         feed.item({
