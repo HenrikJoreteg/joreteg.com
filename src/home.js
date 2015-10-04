@@ -18,6 +18,10 @@ export default class Home extends Component {
             </article>
           )
         })}
+
+        <footer>
+          <a href='/blog/all'>list of all posts</a>
+        </footer>
       </section>
     )
   }
