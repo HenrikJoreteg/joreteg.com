@@ -17,6 +17,7 @@ module.exports = webpackConfig({
   out: 'public',
   clearBeforeBuild: true,
   serveCustomHtmlInDev: false,
+  hostname: 'odin.local',
   html: function (context) {
     function render (el, scripts) {
       var contentHtml = React.renderToStaticMarkup(el)
