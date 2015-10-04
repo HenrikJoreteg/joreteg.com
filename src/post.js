@@ -14,9 +14,8 @@ export default class Post extends Component {
     let tags
 
     if (post.tags) {
-      console.log(post.tags)
       tags = (
-        <span className='name'>Tagged: {post.tags}</span>
+        <span> | <span className='name'>tagged: {post.tags}</span></span>
       )
     }
 

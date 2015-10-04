@@ -5,10 +5,16 @@
     
   time
     display: inline-block
-    min-width: 100px
-    width: 20%
+    width: 120px
     vertical-align: top
     
   a
     display: inline-block
-    width: 80%
+    max-width: 440px
+    min-width: 180px
+
+@media (max-width: 480px)
+  .post-list
+    a
+      max-width: 200px
+      
