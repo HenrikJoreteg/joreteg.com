@@ -35,6 +35,16 @@ export default class Post extends Component {
           {tags}
         </aside>
         <section dangerouslySetInnerHTML={{__html: post.html}}></section>
+        <footer>
+          <hr/>
+          <h4>Thanks for reading, you may want to:</h4>
+          <ul>
+            <li><a href='http://twitter.com/henrikjoreteg'>follow me on twitter</a></li>
+            <li><a href='http://consulting.joreteg.com'>read about my consulting services</a></li>
+            <li><a href='/blog/all'>see my other posts</a></li>
+            <li><a href='https://gumroad.com/henrikjoreteg/follow'>get an email when I ship new stuff</a></li>
+          </ul>
+        </footer>
       </article>
     )
   }

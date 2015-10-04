@@ -7,7 +7,7 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "stage": "surge -p public -d joreteg-stage.surge.sh",
-    "deploy": "surge -p public -d joreteg.com",
+    "deploy": "cp ROUTER public/ROUTER && surge -p public -d https://joreteg.com",
     "getdata": "babel-node lib/extract-data",
     "yolo": "npm run getdata && npm run build && npm run stage && npm run deploy"
   },

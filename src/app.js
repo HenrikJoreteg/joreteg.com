@@ -3,6 +3,7 @@ import Header from './header'
 import Post from './post'
 import Home from './home'
 import Blog from './blog'
+import FourOhFour from './404'
 
 export default class Index extends Component {
   render () {
@@ -18,6 +19,10 @@ export default class Index extends Component {
 
     if (!page && url === '/blog/all') {
       page = <Blog posts={posts}/>
+    }
+
+    if (!page && url === '/404') {
+      page = <FourOhFour />
     }
 
     if (!page) {

@@ -17,8 +17,8 @@ var analytics = '<script>!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||
 
 var links = [
   '<link rel="alternate" type="application/rss+xml" href="https://joreteg.com/rss">',
-  '<link rel="apple-touch-icon-precomposed" href="https://avatar.png">',
-  '<link rel="shortcut icon" href="https://avatar.png">'
+  '<link rel="apple-touch-icon-precomposed" href="/avatar.png">',
+  '<link rel="shortcut icon" href="/avatar.png">'
 ].join('')
 
 module.exports = webpackConfig({
@@ -36,6 +36,7 @@ module.exports = webpackConfig({
 
     var result = {
       'index.html': render(React.createElement(App, {url: '/', posts: data.posts})),
+      '404.html': render(React.createElement(App, {url: '/404', posts: data.posts})),
       'blog/all.html': render(React.createElement(App, {url: '/blog/all', posts: data.posts}))
     }
 
@@ -46,7 +47,7 @@ module.exports = webpackConfig({
       feed_url: 'https://joreteg.com/rss',
       site_url: 'https://joreteg.com',
       image_url: 'https://joreteg.com/avatar.png',
-      webMaster: 'Henrik Joreteg',
+      webMaster: 'henrik@joreteg.com (Henrik Joreteg)',
       copyright: 'Henrik Joreteg',
       language: 'en',
       pubDate: new Date()
@@ -59,7 +60,7 @@ module.exports = webpackConfig({
         feed.item({
           title: post.title,
           description: post.html,
-          url: post.url,
+          url: 'https://joreteg.com' + post.url,
           author: post.author || 'Henrik Joreteg',
           date: new Date(post.date)
         })
