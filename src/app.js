@@ -16,7 +16,7 @@ export default class Index extends Component {
       page = <Home posts={posts.slice(0, 5)}/>
     }
 
-    if (!page && url === '/blog/archive') {
+    if (!page && url === '/blog/all') {
       page = <Blog posts={posts}/>
     }
 

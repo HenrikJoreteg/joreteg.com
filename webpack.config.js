@@ -12,6 +12,8 @@ function renderScripts (scripts) {
   }).join('')
 }
 
+var analytics = '<script>!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];d.src=\'//d1l6p2sc9645hc.cloudfront.net/tracker.js\';q.parentNode.insertBefore(d,q)}(window,document,\'script\',\'_gs\');_gs(\'GSN-892886-O\');</script>'
+
 module.exports = webpackConfig({
   in: 'src/root.js',
   out: 'public',
@@ -22,12 +24,12 @@ module.exports = webpackConfig({
     function render (el, scripts) {
       var contentHtml = React.renderToStaticMarkup(el)
       scripts = renderScripts(scripts)
-      return '<!doctype html><head><meta charset="utf-8"/><title>Henrik Joreteg, JavaScript Consultant</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><link href="/' + context.css + '" rel="stylesheet"/></head><body>' + contentHtml + scripts + '</body>'
+      return '<!doctype html><head><meta charset="utf-8"/><title>Henrik Joreteg, JavaScript Consultant</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><link href="/' + context.css + '" rel="stylesheet"/></head><body>' + contentHtml + scripts + analytics + '</body>'
     }
 
     var result = {
       'index.html': render(React.createElement(App, {url: '/', posts: data.posts})),
-      'blog/archive.html': render(React.createElement(App, {url: '/blog/archive', posts: data.posts}))
+      'blog/all.html': render(React.createElement(App, {url: '/blog/all', posts: data.posts}))
     }
 
     data.posts.forEach(function (post) {
