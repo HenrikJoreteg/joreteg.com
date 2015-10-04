@@ -1,0 +1,2 @@
+301   /post/:id/:slug   /blog/:slug
+301   /rss   			/rss.xml
