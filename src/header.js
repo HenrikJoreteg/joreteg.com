@@ -3,17 +3,10 @@ import classnames from 'classnames'
 
 export default class Header extends Component {
   render () {
-    let imageUrl
-    let isShort = this.props.height === 'short'
-
-    if (isShort) {
-      imageUrl = 'https://static.joreteg.com/large_short_background.jpg'
-    } else {
-      imageUrl = 'https://static.joreteg.com/large_background.jpg'
-    }
+    const imageUrl = 'https://static.joreteg.com/large_background.jpg'
 
     return (
-      <header className={classnames({short: isShort})}>
+      <header>
         <div>
           <img src={imageUrl}/>
         </div>
