@@ -32,7 +32,7 @@ module.exports = webpackConfig({
       var contentHtml = React.renderToStaticMarkup(el)
       scripts = renderScripts(scripts)
       title || (title = 'Henrik Joreteg\'s Blog')
-      return '<!doctype html><head><meta charset="utf-8"/><title>' + title + '</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><link href="/' + context.css + '" rel="stylesheet"/>' + links + '</head><body>' + contentHtml + scripts + analytics + '</body>'
+      return '<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>' + title + '</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><link href="/' + context.css + '" rel="stylesheet"/>' + links + '</head><body>' + contentHtml + scripts + analytics + '</body></html>'
     }
 
     var result = {
