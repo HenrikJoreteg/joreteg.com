@@ -35,9 +35,9 @@ export default class Index extends Component {
     return (
       <div>
         <Header height={headerHeight}/>
-        <div className='container'>
+        <main>
           {page}
-        </div>
+        </main>
       </div>
     )
   }

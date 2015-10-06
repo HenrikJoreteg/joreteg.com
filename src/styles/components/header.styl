@@ -2,8 +2,12 @@ header
   h2
     font-size: 32px
     padding-left: 20px
-    margin-top: -53px
+    margin-top: -47px
     color: white
+    
+  &.short
+    h2
+      margin-top: -53px
   
   p
     padding-left: 20px
@@ -13,6 +17,13 @@ header
     &:first-of-type
       margin-top: -20px
     
-  .bannerImage
+  div
     width: 100%
     height: auto
+    max-height: 480px
+    overflow: hidden
+
+    img
+      width: 100%
+      height: auto
+      
