@@ -93,7 +93,7 @@ Regardless, even though phones may continue to get faster and faster, I think it
 
 As this whole Internet of Things, um… thing becomes more of a thing (wow, that sentence was epically terrible #leavingitanyway). It seems likely there will be a some other platforms we’ll want to write for that are *not* phones. Things like watches, TVs, VR, and small computers hooked to to large displays.
 
-## That’s nice, Henrik. So what should do you propose we do?
+## That’s nice, Henrik. So what do you propose we do?
 
 First, as [I’ve written before][7], I think all the HTML we can infer from the URL alone should be rendered at build time to static HTML files. As it turns out, browsers, even “slow” mobile ones are pretty friggin’ fast at rendering HTML sent from the server.
 
