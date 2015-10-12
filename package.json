@@ -6,10 +6,10 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "stage": "surge -p public -d joreteg-stage.surge.sh",
+    "deploy-stage": "surge -p public -d joreteg-stage.surge.sh",
     "deploy": "cp ROUTER public/ROUTER && surge -p public -d https://joreteg.com",
     "getdata": "babel-node lib/extract-data",
-    "yolo": "npm run getdata && npm run build && npm run stage && npm run deploy"
+    "stage": "npm run getdata && npm run build && npm run deploy-stage"
   },
   "author": "Henrik Joreteg <henrik@joreteg.com>",
   "license": "MIT",

@@ -71,7 +71,7 @@ Nope.
 
 The last two apps I built actually didn’t contain any Ampersand code at all. If you’ve read my [recent, excited post about Redux][5] that probably doesn’t surprise you. 
 
-**I don’t care what you use, beyond how it effects how I experience your app as a user.**
+**I don’t care what you use, beyond how it affects how I experience your app as a user.**
 
 Tools are merely a means to an end. 
 
