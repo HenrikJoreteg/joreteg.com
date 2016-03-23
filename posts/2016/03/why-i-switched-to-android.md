@@ -4,8 +4,7 @@ date: 2016-03-22 19:40:00 GMT
 tags: mobile, web, ios, android, chrome
 slug: why-i-switched-to-android
 ...
-
-Monday of last week I was all excited. I had just gotten the green light to start prototyping a new [Progressive Web App](https://developers.google.com/web/progressive-web-apps?hl=en) for a client I've been working with.
+Monday of last week I was all excited. I had just gotten the green light to start prototyping a new [Progressive Web App](https://developers.google.com/web/progressive-web-apps?hl=en) for a client I've been working with.
 
 I pulled out an older Android phone that I keep around for development. Then I also got my sleek, new, shiny iPhone 6s out of my pocket, with its smooth curves and speedy OS. But as I looked at my iPhone I was kind of bummed out.
 
