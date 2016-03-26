@@ -222,12 +222,12 @@ For related reading check out:
 - [Mozilla’s service worker examples at: ServiceWorke.rs](https://serviceworke.rs/)
 - [FlipKart’s original technical post about their PWA](http://tech-blog.flipkart.net/2015/11/progressive-web-app/)
 - [Jake Archibald’s Offline Cookbook](https://jakearchibald.com/2014/offline-cookbook/)
-- [Aditya Punjani’s post on how they built FlipKart lite](https://medium.com/@AdityaPunjani/building-flipkart-lite-a-progressive-web-app-2c211e641883#.vmfvpa8s3)
-
+- [Aditya Punjani's post on how they built FlipKart lite](https://medium.com/@AdityaPunjani/building-flipkart-lite-a-progressive-web-app-2c211e641883)
 
 ## So what does this all mean for us?
 
 We, as web developers, can finally build screaming fast, fully offline-able, and user-privacy-protecting apps that work cross-platform without the need for any friggin’ App Store taxes, approval processes, or doorslamming users up front with “please install my app to use this service”.
+
 
 ## What about iOS support?
 
