@@ -47,22 +47,26 @@ For example:
 2. Once it's added to your Homescreen, the app developer can't later decide to change the name or the icon. Changing the published [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) has no impact on previous "Add to Homescreen"-ed apps.
 3. When you migrate from one Android phone to another, as I recently did when I got a Pixel, my "installed" PWAs lost their full-screen-ness and didn't run in standalone mode until I removed and re-added them.
 4. Even though App Store discovery has proven very challenging certainly users have been trained to look for apps in app stores. So if you tell your users you built an app the reaction is probably going to be to go search for it in the app store. But, as of right now, they're not listed in app stores (though [Microsoft is changing that](https://blogs.windows.com/msedgedev/2016/07/08/the-progress-of-web-apps/#clsLLk1RvqTVvAyK.97)).
-5. The phrasing of "Add to Homescreen" is pretty weak. It doesn't imply that you're doing more than adding a bookmark. For better or worse we've taught users that apps are to be "installed". As a developer of these apps, I can tell you that the phrase "Add to Homescreen" feels like it's selling what I built short. I know users won't quite get this, whereas they certainly know what "installing an app" means.
+5. The phrasing of "Add to Homescreen" is pretty weak. It doesn't imply that you're doing more than adding a bookmark. For better or worse we've taught users that apps are to be "installed". As a developer of PWAs, I can tell you that the phrase "Add to Homescreen" feels like it's selling what I built short. I know users won't quite get this, whereas they certainly know what "installing an app" means.
 6. An installed native app can "own" a "url scope", which means its possible to create a link that opens an installed application. This may not seem like a big deal, but say you're building a password-less login system where a magic login link is emailed to you that logs you into the application. As it stands right now, there's no way for me to tell the OS to open that link in the installed PWA, instead they'll always open in the default browser.
+7. Web push notifications as implemented right now, come from Chrome, not the PWA. This also means that if you block notifications, it's kind of all or nothing. Because the OS is blocking *Chrome* from notifying users.
+8. Stuff like storage usage and battery consumption get bundled in with Chrome rather than being presented as isolated apps to the user.
 
-**Most, if not all, of the above limitations stem from the fact that "installed PWAs" were *not truly apps* in the eyes of the operating system!**
+So here's the interesting thing about all these problems: **most, if not all of them, stem from the fact that "installed PWAs" are *not truly apps* in the eyes of the operating system!**
 
 ## That's what's changing!
 
 Soon "installed PWAs" will actually be APKs, as in *real* Android apps will be **created and side-loaded** into the OS by Chrome. This means they won't be websites that have been "Add to Homescreen"-ed they'll be **actually generated and installed** on the fly, and with the language to match.
 
-It was rather subtly announced by [Paul Kinlan](https://twitter.com/paul_kinlan), please watch his talk from Chrome Dev Summit, the part I'm talking about starts [right here](https://youtu.be/YJwrBbze_Ec?t=21m33s). It seemed like not a lot of people even caught it. Personally, I erupted into spontaneous applause (in fact, you can hear me on the video right [here](https://youtu.be/YJwrBbze_Ec?t=24m25s)), but I think, given that this was the last talk and a lot of folks were kinda zoning out, I think the implications of this were lost on many of the folks there... hence this post.
+It was rather subtly announced by [Paul Kinlan](https://twitter.com/paul_kinlan), please watch his talk from Chrome Dev Summit the specific part I'm referring to [starts right here](https://youtu.be/YJwrBbze_Ec?t=21m33s). It seemed like not a lot of people even caught it. Personally, I erupted into spontaneous applause (in fact, you can hear me on the video right [here](https://youtu.be/YJwrBbze_Ec?t=24m25s)), but I think, given that this was the last talk of the conference and a lot of folks were kinda zoning out I felt like perhaps the implications of this were a bit lost.
 
-Let me repeat: I think this is a **BIG FRIGGIN' DEAL** for the web and worth being excited about.
+So, let me be clear: I think this is a **BIG FRIGGIN' DEAL** for the web and worth being very excited about!
 
 ## What happens?
 
-It's not landed yet, so details are sure to change, but you can try it today if you've got an up-to-date copy of Android and Chrome Canary installed.
+Beware, I'm told the way it's implemented as I will describe below is not its final state. Apparently the whole "side-loading" bit will be smoothed over and be more seamless. There's a [list of bugs](https://bugs.chromium.org/p/chromium/issues/list?can=2&q=component%3AMobile) related to all of this stuff, you're curious.
+
+It's not landed yet, it's currently behind a flag in Canary so details are sure to change, but you can try it today if you've got an up-to-date copy of Android and Chrome Canary installed.
 
 ### 1. Turn on the flag
 
@@ -72,7 +76,7 @@ Go to `chrome://flags` and enable "Improved add to Home screen":
 
 ### 2. Open a sweet PWA and install it...
 
-[paperplanes.world](https://paperplanes.world/) and select "add to Homescreen" from the menu. You'll see this:
+I'd recommend something like [paperplanes.world](https://paperplanes.world/) and select "add to Homescreen" from the menu. You'll see this:
 
 <img src="/images/1/prompt.png" width="270" height="480" />
 
@@ -96,14 +100,14 @@ You can even view app info like other apps:
 
 A platform with over 1 billion monthly active mobile is working to make web apps first class citizens on that platform in every way they can. This is a *huge* deal. But, to be clear this isn't about Google and Chrome, sure the term Progressive Web App may have been [coined](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/) and promoted by Googlers. But, don't confuse this with just being a Google Thing™.
 
-I'm pretty sure the folks at Microsoft, Mozilla, and Opera would take that personally. Friggin' Steve Jobs promoted the basic idea. Microsoft has [committed to listing PWAs in their store](https://blogs.windows.com/msedgedev/2016/07/08/the-progress-of-web-apps/#clsLLk1RvqTVvAyK.97)! Which is actually more than Google has committed to doing though, if I were a betting man, I'd say this little APK tweak is a step they're taking in that direction. But regardless, the point is, this isn't about Google, it's a Web Thing™.
+I'm pretty sure the folks at Microsoft, Mozilla, and Opera would take that personally. Friggin' Steve Jobs promoted the basic idea. Microsoft has [committed to listing PWAs in their store](https://blogs.windows.com/msedgedev/2016/07/08/the-progress-of-web-apps/#clsLLk1RvqTVvAyK.97)! Which is actually more than Google has committed to doing though, if I were a betting man, I'd say this little APK tweak is a step they're taking in that direction. But regardless, the point is this isn't about Google, it's a Web Thing™.
 
-Right now the Google folks are definitely among the group pushing the envelope with this concept right now. But none of this would get me excited if it were not based on extending the reach of standards-based web applications onto their host systems.
+Right now the Google folks are definitely among the group pushing the envelope with this concept the hardest. But none of this would get me excited if it were not based on extending the reach of standards-based web applications onto their host systems.
 
 As someone who's been working in this space for a long time I'm super excited to see metrics support and economic forces all finally seem to be aligning behind this idea, its time seems to finally have come.
 
 It's a good time to go all in on the web. I can't wait to see what the next few years bring. Personally, I feel like the web is well poised to replace the majority of apps we now get from app stores.
 
-Oh, and for those of you worried about Apple, don't be. They don't like to be the laggard and there are positive signs that they're coming around to the idea. I think the best way to make that happen is to building amazing web experiences that make investing in native app for App Stores seem arduous and unnecessary.
+Oh, and for those of you worried about Apple, don't be. They don't like to be the laggard and there are positive signs that they're coming around to the idea. I think the best way to make that happen is to building amazing web experiences that make choosing to invest in building native apps for App Stores seem arduous and unnecessary. Apple certainly don't want Safari to be [the new IE](https://nolanlawson.com/2015/06/30/safari-is-the-new-ie/), so watch them closely and help speak out where you can.
 
 If you want to (nicely) disagree with me or if you just think there may be something to this whole Web Thing™ I'm [@HenrikJoreteg](https://twitter.com/henrikjoreteg) on twitter you can hit me up there.
