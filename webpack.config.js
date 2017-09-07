@@ -1,9 +1,10 @@
 // make it possible to require es6 modules
-require('babel/register')
+require('babel-register')
 var webpackConfig = require('hjs-webpack')
 var React = require('react')
+var { renderToStaticMarkup } = require('react-dom/server')
 var data = require('./data.json')
-var App = require('./src/app')
+var App = require('./src/app').default
 var RSS = require('rss')
 
 function renderScripts (scripts) {
@@ -29,7 +30,7 @@ module.exports = webpackConfig({
   hostname: 'odin.local',
   html: function (context) {
     function render (el, title, scripts) {
-      var contentHtml = React.renderToStaticMarkup(el)
+      var contentHtml = renderToStaticMarkup(el)
       scripts = renderScripts(scripts)
       title || (title = 'Henrik Joreteg\'s Blog')
       return '<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>' + title + '</title><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><link href="/' + context.css + '" rel="stylesheet"/>' + links + '</head><body>' + contentHtml + scripts + analytics + '</body></html>'
