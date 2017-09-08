@@ -10,21 +10,21 @@ I’m *not* going to tell you what to do. I don’t know about you, but I get a 
 
 So, I’m going to explain why I do what I do and why I’ve chosen to bet my whole career on this crazy Web thing.
 
-"Betting" can have a somewhat negative connotation, what I’m talking about here is more calculated than that, really I’m going to talk more about "investing."
+"Betting" sounds a bit haphazard what I’m talking about is more calculated than that, really it would be better described as "investing."
 
-First off, Would you call yourself an investor? Depends on how you define it, right? An investor is someone who allocates scarce resources hoping for a return. Now, you may not feel like it but you possess something *extremely* rare: your attention.
+Would you call yourself an investor? That may depend on how you define it, right? An investor is someone who allocates scarce resources hoping for a return. You may not feel like it, but you possess something *extremely* rare: your attention.
 
->> As the smart, creative person you are, your attention is worth a lot!
+>> As a smart creative people your attention is worth a lot!
 
 If you don’t believe me, just ask an advertising company. And, it’s *very* scarce. You can only spend it on *one thing* at a time and you only have the present in which to spend it.
 
 This. moment. is. spent.
 
-**"But I can multitask!"**
+"But I can multitask!" you might be thinking.
 
 >> NOPE!
 
-Actually, science suggests that you can’t. A good friend of mine performs brain surgeries for a living and I’ve heard him talk a bit about multitasking and so I texted him and asked him to elaborate. Here’s what he said:
+Science suggests that you can’t. A good friend of mine performs brain surgery for a living and I’ve heard him talk a bit about multitasking in the past so I texted him and asked him to elaborate. Here’s what he said:
 
 > Yes this is true - there is no actual, true multitasking. Our conscious brain can only focus on one thing at a time. I’m not talking about chewing gum and walking :)
 >
@@ -32,7 +32,9 @@ Actually, science suggests that you can’t. A good friend of mine performs brai
 >
 > – [Dr. Nathaniel Whitney](http://www.neuroandspine.com/doctors/nathaniel-whitney-m-d-)
 
-If our attention is scarce, our *professional* attention is even more so. Depending on who you talk to this will vary a bit, but I’ve heard it said that most programmers can only productively code for approximately 6 hours a day.
+If our attention is scarce, our *professional* attention is even more so. Depending on who you talk the numbers will vary a bit, but I’ve heard it said that most programmers can only productively code for approximately 6 hours a day.
+
+Even though many of us enjoy programming, we’re not just doing it to do it. Typically, we’re expecting to get *some kind of return* on that time.
 
 ## "So what?!"
 
@@ -42,15 +44,15 @@ My point is:
 
 You may be thinking: "Congratulations Henrik, you just described *a job*!"
 
-Well, I suppose I did... but there’s a lot more to it than just trading hours for money. That’s all short-term stuff.
+Well, ahem. I suppose I did... but there’s a lot more to it than just trading hours for money. That’s all short-term stuff.
 
-In the long run there are several other, more interesting, consequences.
+In the long run there are other much more interesting consequences:
 
 **1. Building Expertise:** Obviously, you’re building experience and expertise in whatever technologies, platform you’re investing in. Hopefully someday someone will pay you for expertise or you can use it to create something of value.
 
-**2. Equity:** You’re generating equity and adding value to whatever product you’re building.
+**2. Building Equity:** You’re generating equity and adding value to whatever product you’re building.
 
-**3. Tomorrow’s legacy code:** That’s right: "We’re building tomorrow’s legacy code today™." This isn’t necessarily something that we think about. But, in many cases the people that initially build a product or service, are often not the ones that ultimately maintain it. But that means the technology choices we make when building a new product or service, determine whether or not there will be jobs later that require expertise in that platform/technology. So, the platform/technology choices you make when building a new product *literally shape tomorrow’s job market!*
+**3. Building tomorrow’s legacy code today™:** That’s right today’s new hotness is tomorrow’s maintenance burden. This isn’t necessarily something that we think about up front. In many cases the people that initially build a product or service are often not the ones that ultimately maintain it. This means the technology choices we make when building a new product or service, determine whether or not there will be jobs later that require expertise in that platform/technology. So, the platform/technology choices you make when building a new product *literally shape tomorrow’s job market!*
 
 **4. Body of knowledge:** As developers, we’re pretty good at sharing what we learn. We blog, we "Stack-Overflow", etc. These things all contribute to the corpus of knowledge available about that given platform which adds significant value by making it easier/faster for others to build things using these tools.
 
@@ -58,23 +60,23 @@ In the long run there are several other, more interesting, consequences.
 
 **6. Building apps for users on that platform:** Last but not least, without apps there is no platform. By making more software available to end users, we’re contributing significant value to the platforms that run our apps.
 
-Looking at that list, items 3–6 on that list have nothing to do with you yourself earning a return at all. So in addition to earning money for our time, we’re also investing significantly in:
+Looking at that list, items 3–6 on that list have nothing to do with you yourself earning a return at all but have other significant long term impacts. So really, in addition to getting paid for our time we’re also investing significantly in:
 
 - A platform
 - A community
 - A set of technologies
 
-I think it’s important that we ourselves recognize the value we’re bringing to those so that we can be aware of the total impact we’re having.
+We're going to come back to this. But recognizing that greater impact can hopefully help us make better choices about how we chose to invest our limited professional attention.
 
-## With investing comes *risk*
+## With all investing comes *risk*
 
-You can’t talk about investing without talking about risk. So what are some of the risks?
+You can’t talk about investing without talking about risk. So what are some of the potential risks?
 
 ## Are we building for the right platform?
 
 Platform stability is indeed A Thing™. Just ask a Flash developer, Windows Phone developer, or Blackberry developer. Platforms *can* go away.
 
-If we look at those three platforms, what do they have in common? They’re *closed* platforms. What I mean is there’s a single controlling interest. When you build for them, you’re building for a specific operating system and coding against a particular implementation as opposed to coding against a set of *open standards*. You could argue, that at least to some degree, Flash died because of its "closed-ness". Regardless of all that, one thing is clear from a risk mitigation perspective: open is better than closed.
+If we look at those three platforms, what do they have in common? They’re *closed* platforms. What I mean is there’s a single controlling interest. When you build for them, you’re building for a specific operating system and coding against a particular implementation as opposed to coding against a set of *open standards*. You could argue, that at least to some degree, Flash died because of its "closed-ness". Regardless, one thing is clear from a risk mitigation perspective: open is better than closed.
 
 the Web is *incredibly* open. It would be quite difficult for any one entity to kill it off.
 
