@@ -1,5 +1,5 @@
 ---
-title: "Betting on the web"
+title: "Betting on the Web"
 date: 2017-09-08 09:00:00 PST
 tags: pwa, mobile, web
 slug: betting-on-the-web
