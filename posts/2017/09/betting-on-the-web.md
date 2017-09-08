@@ -4,73 +4,45 @@ date: 2017-09-07 20:00:00 PST
 tags: pwa, mobile, web
 slug: betting-on-the-web
 ...
-*Note: I was honored to present the closing keynote at [Coldfront 2017](https://2017.coldfront.co) in Copenhagen about why I’m such a big proponent of the Web. What follows is essentially that talk as a blog post. I’ll add a link to the video once it is published.*
+*Note: I just spoke at [Coldfront 2017](https://2017.coldfront.co) about why I’m such a big proponent of the Web. What follows is essentially that talk as a blog post (I’ll add a link to the video once it is published).*
 
-I’m *not* going to tell you what to do. I don’t know about you, but I get a little peeved when people start telling me what I should do. I *much* prefer when people present the facts as they see them and let people draw their own conclusions about what (if anything) they should do as a result.
+*Also: the Starbucks PWA mentioned in the talk has shipped! 🎉*
 
-So, I’m going to explain why I do what I do and why I’ve chosen to bet my whole career on this crazy Web thing.
+I’m *not* going to tell you what to do. Instead, I’m going to explain why I’ve chosen to bet my whole career on this crazy Web thing. "Betting" sounds a bit haphazard, it’s more calculated than that. It would probably be better described as "investing."
 
-"Betting" sounds a bit haphazard what I’m talking about is more calculated than that, really it would be better described as "investing."
+Investing what? Our time and attention.
 
-Would you call yourself an investor? That may depend on how you define it, right? An investor is someone who allocates scarce resources hoping for a return. You may not feel like it, but you possess something *extremely* rare: your attention.
+Many of us only have maybe 6 or so *really* productive hours per day when we’re capable of being super focused and doing our absolute best work. So how we chose to invest that very limited time is kind of a big deal. Even though I really enjoy programming I rarely do it aimlessly just for the pure joy of it. Ultimately, I’m investing that productive time expecting to get *some kind of return* even if it’s just mastering something or solving a difficult problem.
 
->> As a smart creative people your attention is worth a lot!
+## "So what, what’s your point?"
 
-If you don’t believe me, just ask an advertising company. And, it’s *very* scarce. You can only spend it on *one thing* at a time and you only have the present in which to spend it.
+>> More than most of us realize we are *constantly* investing
 
-This. moment. is. spent.
+Sure, someone may be paying for our time directly but there’s more to it than just trading hours for money. In the long run, what we chose to invest our professional efforts into has other effects:
 
-"But I can multitask!" you might be thinking.
+**1. Building Expertise:** We learn as we work and and gaining valuable experience in the technologies and platform we’re investing in. That expertise impacts our future earning potential and what types of products we’re capable of building.
 
->> NOPE!
+**2. Building Equity:** Hopefully we’re generating equity and adding value to whatever product we’re building.
 
-Science suggests that you can’t. A good friend of mine performs brain surgery for a living and I’ve heard him talk a bit about multitasking in the past so I texted him and asked him to elaborate. Here’s what he said:
-
-> Yes this is true - there is no actual, true multitasking. Our conscious brain can only focus on one thing at a time. I’m not talking about chewing gum and walking :)
->
-> Basically, part of your prefrontal cortex controls what you are consciously focused on. Switching focus from one thing to another actually takes time (in the range of 0.7 seconds according to some).
->
-> – [Dr. Nathaniel Whitney](http://www.neuroandspine.com/doctors/nathaniel-whitney-m-d-)
-
-If our attention is scarce, our *professional* attention is even more so. Depending on who you talk the numbers will vary a bit, but I’ve heard it said that most programmers can only productively code for approximately 6 hours a day.
-
-Even though many of us enjoy programming, we’re not just doing it to do it. Typically, we’re expecting to get *some kind of return* on that time.
-
-## "So what?!"
-
-My point is:
-
->> More than most of us realize we are *constantly* investing.
-
-You may be thinking: "Congratulations Henrik, you just described *a job*!"
-
-Well, ahem. I suppose I did... but there’s a lot more to it than just trading hours for money. That’s all short-term stuff.
-
-In the long run there are other much more interesting consequences:
-
-**1. Building Expertise:** Obviously, you’re building experience and expertise in whatever technologies, platform you’re investing in. Hopefully someday someone will pay you for expertise or you can use it to create something of value.
-
-**2. Building Equity:** You’re generating equity and adding value to whatever product you’re building.
-
-**3. Building tomorrow’s legacy code today™:** That’s right today’s new hotness is tomorrow’s maintenance burden. This isn’t necessarily something that we think about up front. In many cases the people that initially build a product or service are often not the ones that ultimately maintain it. This means the technology choices we make when building a new product or service, determine whether or not there will be jobs later that require expertise in that platform/technology. So, the platform/technology choices you make when building a new product *literally shape tomorrow’s job market!*
+**3. Shaping tomorrow’s job market:** We’re building tomorrow’s legacy code today™. Today’s new hotness is tomorrow’s maintenance burden. In many cases the people that initially build a product or service are not the ones that ultimately maintain it. This means the technology choices we make when building a new product or service, determine whether or not there will be jobs later that require expertise in that particular platform/technology. So, those tech choices *literally shape tomorrow’s job market!*
 
 **4. Body of knowledge:** As developers, we’re pretty good at sharing what we learn. We blog, we "Stack-Overflow", etc. These things all contribute to the corpus of knowledge available about that given platform which adds significant value by making it easier/faster for others to build things using these tools.
 
-**5. Open Source:** I don’t know about you, but once I’ve solved something, I don’t ever want to do it again, so I often put it up on github and publish it to npm. When lots of developers have this mindset it adds *tremendous value* to the technologies and platforms these tools are for. The sheer volume of work that you *don’t* have to do because you can use someone else’s library that already does it is mind-boggling. Millions and millions of hours of development work are available to you for free with a simple `npm install`.
+**5. Open Source:** We solve problems and share our work. When lots of developers do this it adds *tremendous value* to the technologies and platforms these tools are for. The sheer volume of work that we *don’t have to do* because we can use someone else’s library that already does it is mind-boggling. Millions and millions of hours of development work are available to us for free with a simple `npm install`.
 
 **6. Building apps for users on that platform:** Last but not least, without apps there is no platform. By making more software available to end users, we’re contributing significant value to the platforms that run our apps.
 
-Looking at that list, items 3–6 on that list have nothing to do with you yourself earning a return at all but have other significant long term impacts. So really, in addition to getting paid for our time we’re also investing significantly in:
+Looking at that list, items 3–6 on that list have nothing to do with ourselves earning a return at all but instead represent other significant long term impacts.
 
-- A platform
-- A community
-- A set of technologies
+>> We often have a broader impact than we realize
 
-We're going to come back to this. But recognizing that greater impact can hopefully help us make better choices about how we chose to invest our limited professional attention.
+We’re not just investing time into a job, we're also shaping the platform, community, and technologies we use.
+
+We’re going to come back to this, but hopefully, recognizing that greater impact can help us make better investments.
 
 ## With all investing comes *risk*
 
-You can’t talk about investing without talking about risk. So what are some of the potential risks?
+We can’t talk about investing without talking about risk. So what are some of the potential risks?
 
 ## Are we building for the right platform?
 
@@ -100,9 +72,9 @@ From a risk mitigation perspective, two things are clear with regard to platform
 
 Many of us are building apps. Well, we used to build "applications" but that wasn’t nearly cool enough. So now we build "apps" instead 😎.
 
-What does "app" mean to a user? This is important because I think it’s changed a bit over the years. To a user, I would suggest it basically means: "a thing I put on my phone".
+What does "app" mean to a user? This is important because I think it’s changed a bit over the years. To a user, I would suggest it basically means: "a thing I put on my phone."
 
-But for our purposes I want to get a bit more specific. I’d propose that an app is really
+But for our purposes I want to get a bit more specific. I’d propose that an app is really:
 
 1. An "ad hoc" user interface
 2. That is local(ish) to the device
@@ -163,7 +135,7 @@ The thing I’ve come to realize, is this:
 >> We don’t care how they got there.
 >> We only care that they’re *there* when we need them.
 
-For example, I love to go mountain biking 🚵   and I enjoy tracking my rides with an app called Strava. I get all geared up for my ride, get on my bike and then go, "Oh right, gotta start Strava." So I pull out my phone *with my gloves on* and go: "Ok Google, open Strava".
+For example, I love to go mountain biking and I enjoy tracking my rides with an app called Strava. I get all geared up for my ride, get on my bike and then go, "Oh right, gotta start Strava." So I pull out my phone *with my gloves on* and go: "Ok Google, open Strava".
 
 I *could not care less* about where that app was or where it came from when I said that.
 
@@ -187,9 +159,12 @@ Which also reminds me of something that I feel like we often forget. We always a
 
 ## Enter PWAs
 
-I’ve been contracting with Starbucks for the past 18 months. They’ve taken on the ambitious project of essentially re-building a lot of their web stuff in Node.js and React. One of the things I’ve helped them with (and pushed hard for) was to build a PWA (Progressive Web App) that could provide similar functionality as their native apps. Coincidentally (seriously) it was launched today: [https://preview.starbucks.com](https://preview.starbucks.com)!
+I’ve been contracting with Starbucks for the past 18 months. They’ve taken on the ambitious project of essentially re-building a lot of their web stuff in Node.js and React. One of the things I’ve helped them with (and pushed hard for) was to build a PWA (Progressive Web App) that could provide similar functionality as their native apps. Coincidentally it was launched today: [https://preview.starbucks.com](https://preview.starbucks.com)!
 
-So, in the interest of providing a real world size comparison:
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">My team at <a href="https://twitter.com/Starbucks">@Starbucks</a> has been building a PWA, and it&#39;s now in beta! Check it out at <a href="https://t.co/tEUXM8BLgP">https://t.co/tEUXM8BLgP</a> if you&#39;re an existing customer! <a href="https://t.co/b9IJ3HbGpx">pic.twitter.com/b9IJ3HbGpx</a></p>&mdash; David Brunelle (@davidbrunelle) <a href="https://twitter.com/davidbrunelle/status/905931990444244995">September 7, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+This gives is a nice real world example:
 
 - Starbucks iOS: 146MB
 - Starbucks PWA: ~600KB
