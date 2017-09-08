@@ -1,6 +1,6 @@
 ---
 title: "Betting on the web"
-date: 2017-09-07 22:40:00 PST
+date: 2017-09-07 20:00:00 PST
 tags: pwa, mobile, web
 slug: betting-on-the-web
 ...
@@ -187,7 +187,7 @@ Which also reminds me of something that I feel like we often forget. We always a
 
 ## Enter PWAs
 
-I’ve been contracting with Starbucks for the past 18 months. They’ve taken on the ambitious project of essentially re-building a lot of their web stuff in Node.js and React. One of the things I’ve helped them with (and pushed hard for) was to build a PWA (Progressive Web App) that could provide similar functionality as their native apps.
+I’ve been contracting with Starbucks for the past 18 months. They’ve taken on the ambitious project of essentially re-building a lot of their web stuff in Node.js and React. One of the things I’ve helped them with (and pushed hard for) was to build a PWA (Progressive Web App) that could provide similar functionality as their native apps. Coincidentally (seriously) it was launched today: [https://preview.starbucks.com](https://preview.starbucks.com)!
 
 So, in the interest of providing a real world size comparison:
 
