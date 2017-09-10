@@ -20,7 +20,7 @@ Many of us only have maybe 6 or so *really* productive hours per day when we’r
 
 Sure, someone may be paying for our time directly but there’s more to it than just trading hours for money. In the long run, what we chose to invest our professional efforts into has other effects:
 
-**1. Building Expertise:** We learn as we work and and gaining valuable experience in the technologies and platform we’re investing in. That expertise impacts our future earning potential and what types of products we’re capable of building.
+**1. Building Expertise:** We learn as we work and gain valuable experience in the technologies and platform we’re investing in. That expertise impacts our future earning potential and what types of products we’re capable of building.
 
 **2. Building Equity:** Hopefully we’re generating equity and adding value to whatever product we’re building.
 
@@ -32,7 +32,7 @@ Sure, someone may be paying for our time directly but there’s more to it than 
 
 **6. Building apps for users on that platform:** Last but not least, without apps there is no platform. By making more software available to end users, we’re contributing significant value to the platforms that run our apps.
 
-Looking at that list, items 3–6 on that list have nothing to do with ourselves earning a return at all but instead represent other significant long term impacts.
+Looking at that list, the last four items are not about *us* at all. They represent other significant long-term impacts.
 
 >> We often have a broader impact than we realize
 
@@ -180,6 +180,10 @@ Market forces are *strongly* aligned with PWAs here:
 - Few app downloads
 - User acquisition is *hard*
 - User acquisition is *expensive*
+
+If the goal is to get people to sign up for the rewards program, that type of size difference could very well make the difference of getting someone signed up and using the app experience (via PWA) by the time they reach the front of the line at Starbucks or not.
+
+User acquisition is hard enough already, the more time and barriers that can be removed from that process, the better.
 
 ## Quick PWA primer
 
