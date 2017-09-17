@@ -25,7 +25,7 @@ var links = [
 module.exports = webpackConfig({
   in: 'src/root.js',
   out: 'public',
-  clearBeforeBuild: '!(images|avatar.png)',
+  clearBeforeBuild: '!(_redirects|images|avatar.png)',
   serveCustomHtmlInDev: false,
   hostname: 'odin.local',
   html: function (context) {

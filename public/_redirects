@@ -1,0 +1,2 @@
+/post/:id/:slug   /blog/:slug
+/rss              /rss.xml
