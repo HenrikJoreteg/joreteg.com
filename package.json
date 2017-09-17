@@ -6,7 +6,7 @@
   "scripts": {
     "start": "http-server -p 3000",
     "build-app": "webpack",
-    "build": "npm run getdata && npm run build-app",
+    "build": "npm run getdata && npm run build-app && node lib/inject-css",
     "deploy-stage": "surge -p public -d joreteg-stage.surge.sh",
     "deploy": "cp ROUTER public/ROUTER && surge -p public -d https://joreteg.com",
     "getdata": "babel-node lib/extract-data",
@@ -57,5 +57,9 @@
       "react",
       "es2015"
     ]
+  },
+  "devDependencies": {
+    "cssmin": "^0.4.3",
+    "glob": "^7.1.2"
   }
 }

@@ -8,7 +8,7 @@ export default class Header extends Component {
     return (
       <header>
         <div>
-          <img src={imageUrl}/>
+          <img src={imageUrl} alt='Henrik speaking at a conference' />
         </div>
         <h2>{this.props.title}</h2>
         <p>{this.props.subtitle}</p>
