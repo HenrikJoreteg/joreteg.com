@@ -14,7 +14,9 @@ function renderScripts (scripts) {
   }).join('')
 }
 
-var analytics = '<script>!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];d.src=\'//d1l6p2sc9645hc.cloudfront.net/tracker.js\';q.parentNode.insertBefore(d,q)}(window,document,\'script\',\'_gs\');_gs(\'GSN-892886-O\');</script>'
+var goSquaredAnalytics = '<script>!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];d.src=\'//d1l6p2sc9645hc.cloudfront.net/tracker.js\';q.parentNode.insertBefore(d,q)}(window,document,\'script\',\'_gs\');_gs(\'GSN-892886-O\');</script>'
+var googleAnalytics = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1196801-4"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'UA-1196801-4\');</script>'
+
 
 var links = [
   '<link rel="alternate" type="application/rss+xml" href="https://joreteg.com/rss">',
@@ -33,7 +35,7 @@ module.exports = webpackConfig({
       var contentHtml = renderToStaticMarkup(el)
       scripts = renderScripts(scripts)
       title || (title = 'Henrik Joreteg\'s Blog')
-      return '<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>' + title + '</title><meta name="viewport" content="width=device-width, initial-scale=1"/><style>{{{CSS}}}</style>' + links + '</head><body>' + contentHtml + scripts + analytics + '</body></html>'
+      return '<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>' + title + '</title><meta name="viewport" content="width=device-width, initial-scale=1"/><style>{{{CSS}}}</style>' + links + '</head><body>' + contentHtml + scripts + goSquaredAnalytics + googleAnalytics + '</body></html>'
     }
 
     var result = {
