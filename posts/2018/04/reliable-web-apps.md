@@ -7,7 +7,7 @@ slug: honey-badger-web-apps
 ...
 **This is a chapter from my new book [Human Redux](https://reduxbook.com/) which is now available!**
 
-# Reliable apps
+# Chapter 11: Reliable apps
 
 As a user, nothing will more quickly sour me on a piece of software than flakiness. When we try to get someone to use our software, to some degree, we're asking them to trust us. If they're going to enter their data, spend their precious time, or hope to get some value out of the app we've built, they have to trust that it's going to do what it's supposed to do.
 
@@ -336,9 +336,9 @@ const store = createStore(
 
 As you can see, since we're just dealing with simple functions here we can combine them however we wish.
 
-**Note**: If you needed to add something to the `initialState` inside the generated reducer that could also be accomplished. We would change our `getMetadataReducer` helper to return an object containing both a generated `initialState` object _and_ the `reducer`.
+**Note**: If you needed to add something to the `initialState` inside the generated reducer that can also be done. We would change our `getMetadataReducer` helper to return an object containing both a generated `initialState` object _and_ the `reducer`.
 
-Then, we we use it, we'd grab
+Then, when we used it, we'd grab the resulting `initialState` along with the reducer. We can modify that and use it as part of our reducer too as shown below:
 
 ```js
 // again grabbing the file from above, that now has
