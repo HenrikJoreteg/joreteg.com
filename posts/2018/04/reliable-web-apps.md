@@ -7,6 +7,8 @@ slug: honey-badger-web-apps
 ...
 **This is a chapter from my new book [Human Redux](https://reduxbook.com/) which is now available!**
 
+# Reliable apps
+
 As a user, nothing will more quickly sour me on a piece of software than flakiness. When we try to get someone to use our software, to some degree, we're asking them to trust us. If they're going to enter their data, spend their precious time, or hope to get some value out of the app we've built, they have to trust that it's going to do what it's supposed to do.
 
 How is trust built? Through experience, right? Consistent experiences over time lead to trust.
@@ -134,7 +136,7 @@ So, by no fault of Starbucks', any number of things could go wrong here. How on 
 
 First, as you probably guessed if you read the previous chapter, all the logic was contained in selector functions. Selectors could be used to inspect what point in the process we were. Unless all the prerequisite conditions were in place, the next actions would not be dispatched. This alone, was incredibly effective at just ensuring only the next possible thing would be triggered.
 
-Also, at each point in the process where _any_ step of the process was successful. The result would be persisted locally by means we'll discuss in the next chapter. Then, on startup, the application's initial data that we passed to `createStore` would always contain the contents of the reducers that had been successfully persisted. This meant we could march forward in this chain of events without ever needing to take a step back. It also meant that even if a user refreshed the browser or got disconnected because their phone was trying to jump to WiFi, the process would always be able to pick up where it left off, rather than having to start from the beginning.
+Also, at each point in the process where _any_ step of the process was successful the result would be persisted locally by means we'll discuss in the next chapter. Then, on startup, the application's initial data that we passed to `createStore` would always contain the contents of the reducers that had been successfully persisted. This meant we could march forward in this chain of events without ever needing to take a step back. It also meant that even if a user refreshed the browser or got disconnected because their phone was trying to jump to WiFi, the process would always be able to pick up where it left off, rather than having to start from the beginning.
 
 ## Recovering from errors
 
@@ -288,7 +290,7 @@ In this way, we can take something that sounds tedious, complex, and error-prone
 
 Similarly, we can create helpers for our selectors that can determine if we should fetch something based on this _now consistent_ data structure and the current app time.
 
-The "honey-badger" example in the examples folder is built on these ideas but uses tools from redux-bundler to do it. The resilience of this approach enables us to build some of those "riskier" features in a way that is ultimately reliable.
+The "honey-badger" example available at: https://reduxbook.com/honey-badger is built on these ideas but uses tools from redux-bundler to do it. The resilience of this approach enables us to build some of those "riskier" features in a way that is ultimately reliable.
 
 ## Mixing higher-order reducers into your own reducer
 
@@ -382,7 +384,6 @@ const userReducer = (state = initialUserState, action) => {
 1.  I showed how to store metadata along with your data in reducers to enable your app to recover from errors.
 1.  Higher-order reducers can be used to tackle tedious "bookkeeping" problems while significantly reducing the surface area for bugs.
 1.  We can compose the generated reducer function into another reducer to customize behavior to support handling other action types as well.
-1.  Example code: see the "honey-badger" app in the examples folder.
-
+1.  For an example of what you can do with this approach see: https://reduxbook.com/honey-badger
 
 **If you enjoyed this the whole book is now available. It's called Human Redux buy it at [https://reduxbook.com](https://reduxbook.com)!**
