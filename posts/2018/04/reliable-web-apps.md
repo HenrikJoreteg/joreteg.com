@@ -144,7 +144,8 @@ Since, as we stated, things were likely to go wrong I didn't want the whole thin
 
 ```js
 const state = {
-  // the actual data, the payload of the successful requests
+  // the actual data, the payload of the
+  // successful requests
   data: null,
 
   // a flag to check whether currently loading
@@ -290,7 +291,7 @@ In this way, we can take something that sounds tedious, complex, and error-prone
 
 Similarly, we can create helpers for our selectors that can determine if we should fetch something based on this _now consistent_ data structure and the current app time.
 
-The "honey-badger" example available at: https://reduxbook.com/honey-badger is built on these ideas but uses tools from redux-bundler to do it. The resilience of this approach enables us to build some of those "riskier" features in a way that is ultimately reliable.
+The "honey-badger" example available at: [reduxbook.com/honey-badger](https://reduxbook.com/honey-badger) is built on these ideas but uses tools from redux-bundler to do it. The resilience of this approach enables us to build some of those "riskier" features in a way that is ultimately reliable.
 
 ## Mixing higher-order reducers into your own reducer
 
@@ -384,6 +385,6 @@ const userReducer = (state = initialUserState, action) => {
 1.  I showed how to store metadata along with your data in reducers to enable your app to recover from errors.
 1.  Higher-order reducers can be used to tackle tedious "bookkeeping" problems while significantly reducing the surface area for bugs.
 1.  We can compose the generated reducer function into another reducer to customize behavior to support handling other action types as well.
-1.  For an example of what you can do with this approach see: https://reduxbook.com/honey-badger
+1.  For an example of what you can do with this approach see: [reduxbook.com/honey-badger](https://reduxbook.com/honey-badger)
 
 **If you enjoyed this the whole book is now available. It's called Human Redux buy it at [https://reduxbook.com](https://reduxbook.com)!**
