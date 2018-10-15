@@ -377,3 +377,5 @@ Ultimately though, no matter how prepared we are or how much research we’ve do
 So I guess the only thing left to say is:
 
 >> I’m all in.
+
+*Big thanks to [Addy Osmani](https://twitter.com/addyosmani) for his super helpful feedback on this post.*
