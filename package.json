@@ -44,7 +44,7 @@
     "style-loader": "^0.18.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "surge": "^0.17.7",
+    "surge": "0.21.3",
     "url-loader": "^0.5.9",
     "walk": "^2.3.9",
     "webpack": "^3.5.6",
