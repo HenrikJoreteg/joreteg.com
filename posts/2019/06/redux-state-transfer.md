@@ -193,7 +193,7 @@ Avg:
              Avg Perf Score   Avg. TTI
 Approach #1: 87.2             4.04s
 Approach #2: 90.8             4.02s
-Approach #3: 90.8             3.3s
+Approach #3: 95.2             3.3s
 ```
 
 Conclusion: JSON String inside a real _&lt;script&gt;_ tag wins by a shocking margin. An _18%_ TTI improvement on an already pretty fast app is incredible for such a simple change.
