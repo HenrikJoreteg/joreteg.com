@@ -1,6 +1,6 @@
 ---
 
-title: "Improving Redux state transfer performance with JSON.parse(), an quick case study"
+title: "Improving Redux state transfer performance with JSON.parse(), a quick case study"
 date: 2019-06-26 12:00:00 PST
 tags: architecture, pwa, state, redux
 slug: improving-redux-state-transfer-performance
