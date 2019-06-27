@@ -184,7 +184,7 @@ Perf Score   TTI
 94           3.3s
 
 Avg:
-90.8         3.3s
+95.2         3.3s
 ```
 
 ## Summary
