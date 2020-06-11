@@ -1,7 +1,7 @@
 ---
 
 title: "Project Fugu: A New Hope"
-date: 2020-06-12 12:00:00 PST
+date: 2020-06-10 22:00:00 PST
 tags: pwa, mobile, web
 slug: project-fugu-a-new-hope
 ...
