@@ -147,7 +147,7 @@ I'm going to tell my customers to use a Chromium-based browser if they need to t
 
 I'll tell them to skip the fancy iPad Pro and buy a \$300 chromebook to use as a _clinical tool in their operatories_.
 
-Forget Apple. I'm going to tell all these doctors that Apple is selling them sort and to buy a cheap chromebook or other device that can run a Chromium based browser.
+Forget Apple. I'm going to tell all these doctors that Apple is selling them short and to buy a cheap chromebook or other device that can run a Chromium based browser.
 
 Oh and hey, before you get too pedantic on me. This is a reminder that Microsoft is taking Chromium and using it to _compete with Chrome on user-facing features_! So is Brave and others.
 
