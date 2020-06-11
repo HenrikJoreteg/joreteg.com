@@ -151,7 +151,7 @@ Forget Apple. I'm going to tell all these doctors that Apple is selling them sor
 
 Oh and hey, before you get too pedantic on me. This is a reminder that Microsoft is taking Chromium and using it to _compete with Chrome on user-facing features_! So is Brave and others.
 
-> > > This is the web we want.
+> > > This is The Web we want.
 
 A Web with all the capabilities we need, while keeping software distribution SIMPLE. Let the vendors compete on user-facing features, like password managers, privacy controls, etc. But, let's have the most capable open source browser engine available so we can get the capabilities we need to _ship software_.
 
