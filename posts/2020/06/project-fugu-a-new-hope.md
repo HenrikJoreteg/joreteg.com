@@ -38,7 +38,7 @@ See it for yourself! [goo.gle/fugu-api-tracker](https://goo.gle/fugu-api-tracker
 
 ## Meanwhile over on IE, ahem... I mean Safari
 
-The following appears to be the general attitude I see from the Webkit folks even for adding something as benign as screen lock **which requires explicit permission**. Ricky is a WebKit engineer and @othermaciej who responds with a similar attitude is currently **head of WebKit Engineering**:
+The following appears to be the general attitude I see from the Webkit folks even for adding something as benign as screen lock. Ricky is a WebKit engineer and @othermaciej who responds with a similar attitude is currently **head of WebKit Engineering**:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Looking forward to the battery life benefits this API will bring.</p>&mdash; othermaciej (@othermaciej) <a href="https://twitter.com/othermaciej/status/1171963641098162176?ref_src=twsrc%5Etfw">September 12, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
