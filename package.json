@@ -5,7 +5,8 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build-app": "parcel build src/index.html",
-    "build": "npm run getdata && npm run build-app && npm run copy-includes && npm run prerender",
+    "build-rss": "node -r esm lib/build-rss",
+    "build": "npm run getdata && npm run build-app && npm run copy-includes && npm run build-rss && npm run prerender",
     "copy-includes": "node -r esm lib/copy-includes",
     "stage": "npm version patch && git push origin stage",
     "getdata": "node lib/extract-data",
@@ -36,7 +37,7 @@
     "react-dom": "^15.6.1",
     "readify": "^1.3.0",
     "recursive-readdir": "^1.2.1",
-    "rss": "^1.1.1",
+    "rss": "1.2.2",
     "slugger": "^1.0.1",
     "start-server-and-test": "1.14.0",
     "stylus": "^0.54.5",
@@ -53,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@parcel/transformer-image": "2.0.0-rc.0",
     "@parcel/transformer-stylus": "2.0.0-rc.0",
     "glob": "^7.1.2"
   }
