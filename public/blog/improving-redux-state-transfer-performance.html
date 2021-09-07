@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Improving Redux state transfer performance with JSON.parse(), a quick case study</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.b9300aa6.css">
+    <link rel="alternate" type="application/rss+xml" href="https://joreteg.com/rss">
+  <link rel="apple-touch-icon-precomposed" href="/avatar.png"><link rel="shortcut icon" href="/avatar.png"></head>
+  <body>
+    <div id="app"><div data-reactroot=""><header><div><img src="https://static.joreteg.com/large_background.jpg" alt="Henrik speaking at a conference"></div><h2>Hi, I’m Henrik Joreteg</h2><p>Mobile web consultant, developer, and speaker</p><p><a href="/blog/all">posts</a><!-- react-text: 9 --> |<!-- /react-text --><!-- react-text: 10 --> <!-- /react-text --><a href="http://twitter.com/henrikjoreteg">twitter</a><!-- react-text: 12 --> |<!-- /react-text --><!-- react-text: 13 --> <!-- /react-text --><a href="mailto:henrik@joreteg.com">email</a><!-- react-text: 15 --> |<!-- /react-text --><!-- react-text: 16 --> <!-- /react-text --><a href="http://consulting.joreteg.com">hire</a><!-- react-text: 18 --> |<!-- /react-text --><!-- react-text: 19 --> <!-- /react-text --><a href="https://reduxbook.com">book</a><!-- react-text: 21 --> |<!-- /react-text --><!-- react-text: 22 --> <!-- /react-text --><a href="https://xchart.com">my startup: Xchart.com</a></p></header><main><article class="post-wrapper"><h1><a href="/blog/improving-redux-state-transfer-performance">Improving Redux state transfer performance with JSON.parse(), a quick case study</a></h1><hr><aside><span class="name"><!-- react-text: 31 -->Last updated: <!-- /react-text --><!-- react-text: 32 -->26 Jun 2019<!-- /react-text --></span><span><!-- react-text: 34 --> <!-- /react-text --><!-- react-text: 35 -->| <!-- /react-text --><span class="name"><!-- react-text: 37 -->tagged: <!-- /react-text --><!-- react-text: 38 -->architecture, pwa, state, redux<!-- /react-text --></span></span></aside><section><p><strong>TLDR:</strong> Turning Redux state into a JavaScript string you can parse with <em>JSON.parse()</em> instead of an object literal, or inert script tag, appears to be <em>significantly</em> faster than other approaches for sending Redux store state to the browser.</p><p>For my case making this one change shaved TTI (Time To Interactive) from an already pretty good <em>4.04s</em> to <em>3.3s</em>, a <em>.74s</em> or <em>~18%</em> improvement. It increased the Lighthouse performance score an average of _8_ points from <em>87.2</em> to <em>95.2</em>!</p><p>These results were unexpected, when I shared them on Twitter both <a href="https://twitter.com/addyosmani">Addy Osmani</a> and <a href="https://twitter.com/mathias">Mathias Bynens</a> asked me write it up... so here we are.</p><a name="introduction" class="anchor" href="#introduction"><h2><span class="header-link"></span>Introduction</h2></a><p>When doing Server-side Rendering (a.k.a SSR) it is common practice to render HTML and "<a href="https://developers.google.com/web/updates/2019/02/rendering-on-the-web#rehydration">rehydrate</a>" it in the browser using Preact or React.</p><p>Often times, this also requires you transfer the current application state to the browser, somehow. That way, when your application spins up in the browser, it can rehydrate with all the state it had on the server.</p><p>Most of my experience with doing this as a consultant is with <a href="https://redux.js.org/">Redux</a>. And, in my experience these Redux state dumps can easily get <em>way too big</em>... but I digress.</p><p>The best strategy is always to <em>minimize their size to begin with</em>. But, there are certain cases where that is difficult to do beyond a certain point, and plenty of other cases where things have already gotten out of hand and you're just trying to make thing better.</p><p>There are three predominant mechanisms (that I'm aware of) for doing this "state transfer."</p><p>They are:</p><a name="option-1-turn-your-state-in-to-a-js-object-literal" class="anchor" href="#option-1-turn-your-state-in-to-a-js-object-literal"><h2><span class="header-link"></span>Option #1: Turn your state in to a JS object literal</h2></a><p>This means that on the server-side you do something like <em>JSON.stringify(store.getState())</em> and you end up with HTML that includes a script tag like this.</p><pre><code class="undefinedhtml">&lt;script&gt;
+  window.__REDUX__ = { some: "value", someOther: "value and so on" };
+&lt;/script&gt;
+</code></pre><p>For this approach to work you also have to be careful about not including anything in your JSON that would make the browser think the script tag was terminating. So some extra escaping may be in order (<a href="https://mathiasbynens.be/notes/etago">learn more here</a>). Additionally, using the result of <em>JSON.stringify()</em> directly in JS source code was a potential security issue until recently, since JSON strings could contain certain characters that were invalid in JS strings. More recently, this has been addressed with a <a href="https://github.com/tc39/proposal-json-superset">spec-level proposal that made it into ES2019</a>.</p><p>But, as you'll see you probably won't want to use this approach anyway since it's the slowest option.</p><p>When this executes in the browser what was JSON on the server-side is treated and parsed by the browser as a JS object literal. No different than if you have written code like this, without the quoted key names:</p><pre><code class="undefinedhtml">&lt;script&gt;
+  window.__REDUX__ = { some: "value", someOther: "value and so on" };
+&lt;/script&gt;
+</code></pre><p>But, it just has a few extra double quotes.</p><p>The important point in this case is that the data itself is parsed <em>as if it were JavaScript</em>.</p><a name="option-2-turn-your-state-into-an-quotinertquot-script" class="anchor" href="#option-2-turn-your-state-into-an-quotinertquot-script"><h2><span class="header-link"></span>Option #2: Turn your state into an "inert" script</h2></a><p>Browsers only will parse the contents of a <em>&lt;script&gt;</em> tag if its type is <em>"module"</em>, <em>"text/javascript"</em>, or another <a href="https://mimesniff.spec.whatwg.org/#javascript-mime-type">recognized JS MIME type</a>, or well... it doesn't have a <em>type</em> specified at all. So the point is <em>anything else you specify as a type</em> means its contents will be ignored.</p><p>People use this for all manner of trickery, but it can also be used to transfer Redux state with a bit less escaping, but again, you still need to escape for stuff like <em>&lt;/script</em> to protect against XSS issues.</p><p>Some people like to to give it a valid MIME type to make themselves feel better but... browser don't care.</p><p>For example:</p><pre><code class="undefinedhtml">&lt;script id="myState" type="application/json"&gt;
+  {"your": "state", "goes": "here"}
+&lt;/script&gt;
+</code></pre><p>Then you can later parse it by grabbing the element out of the DOM and parsing its contents in some other script like so:</p><pre><code class="undefinedjs">window.__REDUX__ = JSON.parse(
+  querySelector("myState").innerHTML
+);
+</code></pre><p>Unlike approach #1, in this case, the browser <em>never interprets the data as JavaScript</em> it merely parses a string as JSON, which is a much stricter data type, which as it turns out, is much faster.</p><p><em>However</em>, this approach means that the browser first has to create a DOM element with a lot of text in it and <em>then</em> you have to read that text from the DOM. This, as it turns out, is not without performance overhead of its own (results below).</p><a name="option-3-turn-your-state-into-js-string-containing-escaped-json" class="anchor" href="#option-3-turn-your-state-into-js-string-containing-escaped-json"><h2><span class="header-link"></span>Option #3: Turn your state into JS String containing escaped JSON.</h2></a><p>What you do end up with in your HTML is this:</p><pre><code class="undefinedhtml">&lt;script&gt;
+  window.__REDUX__ = JSON.parse("{\"some\":\"state\",\"other\":\"value\"}");
+&lt;/script&gt;
+</code></pre><p>As it turns out, this is <em>way</em> faster than the other options.</p><p>It may look a bit funny, but you still end up with a JS object. <em>However</em>, the key difference is that the contents of the data you're sending is <em>never interpreted as if it were code</em>. It's just a long JavaScript string literal, as far as the JavaScript parser is concerned. But, at runtime, it's <em>parsed as JSON</em> and becomes a JS object instance just like all the other approaches.</p><p><strong>A quick note on how I generated the JSON string:</strong> It turns out, it's not so easy to do this correctly, especially if you're including data from an API that you may not have full control over. Avoiding XSS is important here.</p><p>Anyway, again <a href="https://twitter.com/mathias/status/1143784574159347712">thanks to Mathias</a>, I ended up doing the following in node.js on the server-side to generate that string in a way that's safe to assume can be treated like a JavaScript string. I'm using his excellent: <a href="https://github.com/mathiasbynens/jsesc">jsesc library</a> as well as his advice to do roughly something like this:</p><pre><code class="undefinedjs">const jsesc = require("jsesc");
+
+// assume `data` here is the data we want to transfer
+module.exports = data =&gt; {
+  const jsonString = jsesc(JSON.stringify(data), {
+    json: true,
+    isScriptContext: true
+  });
+
+  return `
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      ... stuff here
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div id='js-app'&gt;${allTheAppHTML}&lt;/div&gt;
+      &lt;script&gt;window.__REDUX_STATE__ = JSON.parse(${jsonString})&lt;/script&gt;
+      &lt;script src='/my-app.js'&gt;&lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+  `;
+};
+</code></pre><a name="i39m-a-stooge-all-the-credit-goes-to-other-people-here" class="anchor" href="#i39m-a-stooge-all-the-credit-goes-to-other-people-here"><h2><span class="header-link"></span>I'm a stooge, all the credit goes to other people here</h2></a><p>The inimitable <a href="https://twitter.com/addyosmani">Addy Osmani</a> wrote an awesome post for the V8 project's blog about <a href="https://v8.dev/blog/cost-of-javascript-2019">The Cost of JavaScript in 2019</a>.</p><p>And I happened to see, the equally inimitable, <a href="https://twitter.com/mathias/status/1143551692732030979">Mathias Bynens tweet</a> where he screencapped part of it about the cost of parsing JSON and suggested the JSON string approach (and later helped review this post).</p><p>I'm currently working on a Preact PWA project for a big client where we're doing SSR with a redux state transfer of an object bigger than I'd like it to be, so... i figured what the heck, let's try it.</p><p>What I found blew me away.</p><a name="the-test-setup" class="anchor" href="#the-test-setup"><h2><span class="header-link"></span>The test setup</h2></a><ul><li>Browser: Chrome Stable <em>75.0.3770.100</em></li><li>Audit Mechanism: Lighthouse Perf Audit, incognito mode, <em>Simulated Fast 3G, 4x CPU Slowdown</em> setting, with no caching.</li><li>Number of tests: 5 runs of each approach</li><li>Size of Redux state in bytes: <em>163,980</em> with escape slashes: <em>176,017</em> added _7%_</li></ul><p>The size of the state object here is significant. It's much bigger than I'd like it to be but it comes from an API that I have little control over so anyway...</p><a name="the-results" class="anchor" href="#the-results"><h2><span class="header-link"></span>The results</h2></a><p>Approach #1: JS Object Literal</p><pre><code>Perf Score   TTI
+83           4.0s
+87           4.1s
+89           4.1s
+88           4.1s
+89           3.9s
+
+Avg:
+87.2         4.04s
+</code></pre><p>Approach #2: Inert Script Tag</p><pre><code>Perf Score   TTI
+90           4.0s
+90           4.0s
+92           4.1s
+92           4.0s
+90           4.0s
+
+Avg:
+90.8         4.02s
+</code></pre><p>Approach #3: Escaped JSON String inside Script Tag</p><pre><code>Perf Score   TTI
+95           3.3s
+95           3.2s
+96           3.3s
+96           3.4s
+94           3.3s
+
+Avg:
+95.2         3.3s
+</code></pre><a name="summary" class="anchor" href="#summary"><h2><span class="header-link"></span>Summary</h2></a><pre><code>             Avg Perf Score   Avg. TTI
+Approach #1: 87.2             4.04s
+Approach #2: 90.8             4.02s
+Approach #3: 95.2             3.3s
+</code></pre><p>Conclusion: JSON String inside a real <em>&lt;script&gt;</em> tag wins by a shocking margin. An <em>18%</em> TTI improvement on an already pretty fast app is incredible for such a simple change.</p><p>Your mileage may vary, but if you're doing a state transfer like this I'd encourage you to try it for yourself.</p><p>Please tell me what you learn, I'm <a href="https://twitter.com/henrikjoreteg">@HenrikJoreteg</a> on Twitter. Please, let me know what you find.</p><p>Some of my open questions that I don't really have time to dig into right this minute:</p><ol><li>As Mathias pointed out to me in DM <a href="https://v8.dev/blog/v8-release-76#json.parse-improvements">Chrome 76 includes even faster JSON.parse</a>, how will this perform in Chrome 76+? Could this be even better?!?!</li><li>Would <em>.innerHTML</em> versus <em>.textContent</em> make any difference in approach #2?</li><li>How does this change impact performance in other browsers?</li></ol><p>I'd love to hear your thoughts, but I wanted to share this while it was all still fresh in my mind. Hope this helps someone, thanks for reading!</p></section><footer><hr><h4>Thanks for reading, you may want to:</h4><ul><li><a href="https://reduxbook.com">read my new book Human Redux</a></li><li><a href="http://twitter.com/henrikjoreteg">follow me on twitter</a></li><li><a href="http://consulting.joreteg.com">read about my consulting services</a></li><li><a href="/blog/all">see my other posts</a></li><li><a href="https://gumroad.com/henrikjoreteg/follow">get an email when I ship new stuff</a></li></ul></footer></article></main></div></div>
+    <script src="//d1l6p2sc9645hc.cloudfront.net/tracker.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-1196801-4"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag("js", new Date());
+gtag("config", "UA-1196801-4");
+
+</script>
+    <script>!function(g, s, q, r, d) {
+    r = g[r] = g[r] || function() {
+        (r.q = r.q || []).push(arguments);
+    };
+    d = s.createElement(q);
+    q = s.getElementsByTagName(q)[0];
+    d.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+    q.parentNode.insertBefore(d, q);
+}(window, document, "script", "_gs");
+_gs("GSN-892886-O");
+
+</script>
+  
+
+</body></html>

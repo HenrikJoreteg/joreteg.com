@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Playing around with CSS animations in WebKit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.b9300aa6.css">
+    <link rel="alternate" type="application/rss+xml" href="https://joreteg.com/rss">
+  <link rel="apple-touch-icon-precomposed" href="/avatar.png"><link rel="shortcut icon" href="/avatar.png"></head>
+  <body>
+    <div id="app"><div data-reactroot=""><header><div><img src="https://static.joreteg.com/large_background.jpg" alt="Henrik speaking at a conference"></div><h2>Hi, I’m Henrik Joreteg</h2><p>Mobile web consultant, developer, and speaker</p><p><a href="/blog/all">posts</a><!-- react-text: 9 --> |<!-- /react-text --><!-- react-text: 10 --> <!-- /react-text --><a href="http://twitter.com/henrikjoreteg">twitter</a><!-- react-text: 12 --> |<!-- /react-text --><!-- react-text: 13 --> <!-- /react-text --><a href="mailto:henrik@joreteg.com">email</a><!-- react-text: 15 --> |<!-- /react-text --><!-- react-text: 16 --> <!-- /react-text --><a href="http://consulting.joreteg.com">hire</a><!-- react-text: 18 --> |<!-- /react-text --><!-- react-text: 19 --> <!-- /react-text --><a href="https://reduxbook.com">book</a><!-- react-text: 21 --> |<!-- /react-text --><!-- react-text: 22 --> <!-- /react-text --><a href="https://xchart.com">my startup: Xchart.com</a></p></header><main><article class="post-wrapper"><h1><a href="/blog/webkit-css-animations">Playing around with CSS animations in WebKit</a></h1><hr><aside><span class="name"><!-- react-text: 31 -->Last updated: <!-- /react-text --><!-- react-text: 32 -->6 Aug 2009<!-- /react-text --></span></aside><section><p>NOTE: This will only work on webkit based browsers like <a href="http://www.apple.com/safari">Safari</a> or <a href="http://www.google.com/chrome">Chrome</a>.</p><p>If you mouse over the blue “RSS” button below (which conveniently happens to be a link to my blog feed). You should see something cool.<style>
+a#rss_demo_button {
+    width: 43px;
+    height: 23px;
+    margin: 30px 200px;
+    font-size: 18px;
+    background: #6498CC;
+    color: white;
+    padding: 5px 3px;
+    line-height: 23px;
+    text-decoration: none;
+    text-align: center;
+    position: absolute;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-transition: all 2s ease-out;
+}
+a#rss_demo_button:hover, a#rss_demo_button:focus {
+    -webkit-transform: scale(1.50) rotate(-360deg);
+}
+div#demo_container {
+    width:100%;
+    height: 100px;
+}
+</style></p><div id="demo_container"><a href="http://feeds.feedburner.com/joretegdotcom" id="rss_demo_button">RSS</a></div><p>You should see the button spin and zoom when you mouse over. A bit corny, yes, but the cool thing is that it’s done with absolutely zero JavaScript. It’s all CSS!</p><p>It may seem pointless just because only webkit browsers support it. But it’s actually something you can use as a <a href="http://en.wikipedia.org/wiki/Progressive_enhancement">progressive enhancement</a> since other browsers will just ignore it.</p><p>The magic all happens in the following two lines:</p><pre><code>a#rss_demo_button{
+    position:absolute;
+    -webkit-transition: all 2s ease-out;
+}
+a#rss_demo_button:hover, a#rss_demo_button:focus {
+    -webkit-transform: scale(1.50) rotate(-360deg);
+}
+</code></pre><p>The <code>-webkit-trasition</code> sets how transformations will take place, and the second statement adds the transformation effect on <code>focus</code> and <code>hover</code>. I’m still digging deeper into all of this, so right now that’s all I’ve got. But play around with it, there’s a lot more that can be done with this stuff. If you’ve done something cool with it. Throw a link in the comments.</p></section><footer><hr><h4>Thanks for reading, you may want to:</h4><ul><li><a href="https://reduxbook.com">read my new book Human Redux</a></li><li><a href="http://twitter.com/henrikjoreteg">follow me on twitter</a></li><li><a href="http://consulting.joreteg.com">read about my consulting services</a></li><li><a href="/blog/all">see my other posts</a></li><li><a href="https://gumroad.com/henrikjoreteg/follow">get an email when I ship new stuff</a></li></ul></footer></article></main></div></div>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//d1l6p2sc9645hc.cloudfront.net/tracker.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-1196801-4"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag("js", new Date());
+gtag("config", "UA-1196801-4");
+
+</script>
+    <script>!function(g, s, q, r, d) {
+    r = g[r] = g[r] || function() {
+        (r.q = r.q || []).push(arguments);
+    };
+    d = s.createElement(q);
+    q = s.getElementsByTagName(q)[0];
+    d.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+    q.parentNode.insertBefore(d, q);
+}(window, document, "script", "_gs");
+_gs("GSN-892886-O");
+
+</script>
+  
+
+</body></html>

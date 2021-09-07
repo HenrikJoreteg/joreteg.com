@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Building a Polar Clock imitation using the canvas tag and javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.b9300aa6.css">
+    <link rel="alternate" type="application/rss+xml" href="https://joreteg.com/rss">
+  <link rel="apple-touch-icon-precomposed" href="/avatar.png"><link rel="shortcut icon" href="/avatar.png"></head>
+  <body>
+    <div id="app"><div data-reactroot=""><header><div><img src="https://static.joreteg.com/large_background.jpg" alt="Henrik speaking at a conference"></div><h2>Hi, I’m Henrik Joreteg</h2><p>Mobile web consultant, developer, and speaker</p><p><a href="/blog/all">posts</a><!-- react-text: 9 --> |<!-- /react-text --><!-- react-text: 10 --> <!-- /react-text --><a href="http://twitter.com/henrikjoreteg">twitter</a><!-- react-text: 12 --> |<!-- /react-text --><!-- react-text: 13 --> <!-- /react-text --><a href="mailto:henrik@joreteg.com">email</a><!-- react-text: 15 --> |<!-- /react-text --><!-- react-text: 16 --> <!-- /react-text --><a href="http://consulting.joreteg.com">hire</a><!-- react-text: 18 --> |<!-- /react-text --><!-- react-text: 19 --> <!-- /react-text --><a href="https://reduxbook.com">book</a><!-- react-text: 21 --> |<!-- /react-text --><!-- react-text: 22 --> <!-- /react-text --><a href="https://xchart.com">my startup: Xchart.com</a></p></header><main><article class="post-wrapper"><h1><a href="/blog/using-html5-canvas-draw-polar-clock-in-javascript-demo">Building a Polar Clock imitation using the canvas tag and javascript</a></h1><hr><aside><span class="name"><!-- react-text: 31 -->Last updated: <!-- /react-text --><!-- react-text: 32 -->12 Jul 2009<!-- /react-text --></span></aside><section><p>I’ve recently started playing around with some of the stuff that is available in HTML 5. It’s pretty sweet, I can’t wait until more web developers start building stuff with these new technologies. We desperately need a killer app like <a href="http://www.facebook.com">facebook</a> to start using HTML 5 elements and asking users to upgrade. That would either force IE to join the ranks of modern browsers and actually start supporting some of this stuff or make people upgrade to a modern browser like <a href="http://www.google.com/chrome">Chrome</a>, <a href="http://www.firefox.com">FireFox</a>, <a href="http://www.apple.com/safari">Safari</a>, or <a href="http://www.opera.com">Opera</a>.</p><p>Enough of the rant… on to the demo:</p><p><canvas id="clockCanvas" height="400" width="400"></canvas></p><p>To see this you need a modern browser that supports the &lt;canvas&gt; tag such as <a href="http://www.google.com/chrome">Chrome</a>, <a href="http://www.firefox.com">FireFox</a>, <a href="http://www.apple.com/safari/">Safari</a> or <a href="http://www.opera.com">Opera</a></p><p><script type="text/javascript">
+    function clock(){
+        // get current time from client
+        var now = new Date();</p>
+<pre><code>    // get 2D context from the canvas element
+    var ctx = document.getElementById(&#39;clockCanvas&#39;).getContext(&#39;2d&#39;);
+
+    // You&#39;ll see a save and restore all over the place. These are because we
+    // are redrawing the entire image every time, so we have to save the existing
+    // state of the canvas and then add our other shape and then restore what we 
+    // saved.
+    ctx.save();
+    ctx.clearRect(0,0,400,400);
+    ctx.translate(200,200);
+    ctx.scale(1,1);
+    // this rotates the canvas so that the arcs we draw will start at the middle
+    // top rather than horizontally.
+    ctx.rotate(-Math.PI/2);
+    // sets the width of all lines we&#39;re going to draw
+    ctx.lineWidth = 17;
+    // gives our lines a rounded edge.
+    // it also supports &quot;butt&quot; and &quot;square&quot;
+    ctx.lineCap = &quot;round&quot;;
+
+    // I wanted to get a smooth movement so I&#39;m basing all time measurments off
+    // of the millisecond and building partial seconds and minutes by adding the
+    // smaller increment to the larger one. For example getting current millisecond
+    // count and adding that to the current second to build a partial second.
+    var milliSec = now.getMilliseconds();         
+    var sec = now.getSeconds();
+    sec = milliSec/1000+sec;
+    var min = now.getMinutes();
+    min = sec/60 + min;
+    // this is a 24 hour clock
+    var hr  = now.getHours();
+    // if you uncomment the following line, it&#39;d become a 12 hour clock.
+    // hr = hr&gt;=12 ? hr-12 : hr;
+    hr = min/60 + hr;
+    var dow = now.getDay() + 1;
+    var day = now.getDate();
+    var month = now.getMonth() + 1;
+
+    // turn times into percentages
+    var secPer = sec/60;
+    var minPer = min/60;
+    // if you wanted a 12 hour clock, you&#39;d have to change this to 12 too.
+    var hrPer = hr/24;
+    var dowPer = dow/7;
+    var monthPer = month/12;
+    var dayPer = 0;
+
+    // handles the fact that there are different amount of total days in different months
+    if (month == 2){
+        dayPer = day/29;
+    }
+    else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
+        dayPer = day/31;
+    }
+    else {
+        dayPer = day/30;
+    }   
+
+    // call the functions that draw each arc and pass in the radius of the circle we want
+    // and the calculated percentages from above.
+    writeTime(ctx,40,monthPer);
+    writeTime(ctx,60,dayPer);
+    writeTime(ctx,80,dowPer);
+    writeTime(ctx,100,hrPer);
+    writeTime(ctx,120,minPer);
+    writeTime(ctx,140,secPer);
+
+    ctx.restore();
+}
+
+// draws arcs and sets color based on percentages
+function writeTime(ctx,radius,per){
+    ctx.save();
+    ctx.strokeStyle = calculateColor(per);
+    ctx.beginPath();
+    partialCircle(ctx,0,0,radius,per);
+    ctx.stroke();
+    ctx.restore();  
+}   
+
+// turns a percentage into an RGB color string
+function calculateColor(per){
+    var brightness = 255;
+    var red = 0;
+    var green = 0;
+    var blue = 0;
+
+    blue = per * brightness;
+    green = brightness - blue;
+
+    result = &#39;rgba(&#39;+ Math.round(red) + &#39;,&#39; + Math.round(green) + &#39;,&#39; + Math.round(blue) + &#39;,1)&#39;;
+    return result;
+}
+
+// helper function for partial circles          
+function partialCircle(ctx,x,y,rad,percentage){
+    ctx.arc(x,y,rad,0,percentage*(Math.PI*2),false);
+    return ctx;
+}
+
+// call the function repeatedly. 66 is the equivalent of about 15 frames per second
+// this seemed enough to make the animation look smooth look without overdoing it.
+setInterval(clock,66);
+</code></pre><p></script></p><p>The <code>&lt;canvas&gt;</code> tag is just a blank slate that you can draw on with Javascript. Currently it only has a 2D context, but Google is promoting and open source 3D context called O3D that I hope will become the standard for 3D rendering in browsers. It would open the browser up to building full 3D games and other complex 3D rendering. It’s currently available as a plugin, but the idea is to integrate it into all modern browsers as an open standard. If you haven’t heard about it, or want to learn more you can <a href="http://code.google.com/apis/o3d/">check out some O3D samples on Google Code</a>.</p><p></p><p>This is my first real attempt at animations using canvas. For now, I’m just using the 2D context. This is a simplified javascript imitation of my favorite screen saver: <a href="http://blog.pixelbreaker.com/polarclock/">Polar Clock by Pixel Breaker</a> (free to download BTW). It’s an alternative clock. The outside ring represents seconds, then minutes, hours, day of the week, day of the month, and then month. So far, it’s pretty basic and not particularly useful or readable, but I did it more as an exercise.</p><p>If you view source on this page you can see my heavily commented code to see what’s going on. But if you really want to learn more <a href="https://developer.mozilla.org/en/Canvas_tutorial">Mozilla has a great canvas tutorial</a> you might also wanna check out this <a href="http://blog.nihilogic.dk/2009/02/html5-canvas-cheat-sheet.html"><code>&lt;canvas&gt;</code> cheat sheet by Jacob Seidelin</a>. If you’re a web developer… start using this stuff! It’s fun, it doesn’t require plugins and I’m sure you could build something waaaay cooler than this little demo. If you have any thoughts or suggestions, I’m all ears.</p></section><footer><hr><h4>Thanks for reading, you may want to:</h4><ul><li><a href="https://reduxbook.com">read my new book Human Redux</a></li><li><a href="http://twitter.com/henrikjoreteg">follow me on twitter</a></li><li><a href="http://consulting.joreteg.com">read about my consulting services</a></li><li><a href="/blog/all">see my other posts</a></li><li><a href="https://gumroad.com/henrikjoreteg/follow">get an email when I ship new stuff</a></li></ul></footer></article></main></div></div>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//d1l6p2sc9645hc.cloudfront.net/tracker.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-1196801-4"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag("js", new Date());
+gtag("config", "UA-1196801-4");
+
+</script>
+    <script>!function(g, s, q, r, d) {
+    r = g[r] = g[r] || function() {
+        (r.q = r.q || []).push(arguments);
+    };
+    d = s.createElement(q);
+    q = s.getElementsByTagName(q)[0];
+    d.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+    q.parentNode.insertBefore(d, q);
+}(window, document, "script", "_gs");
+_gs("GSN-892886-O");
+
+</script>
+  
+
+</body></html>

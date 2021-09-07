@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Using Fixtures and SQLite for easy dev in Django</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.b9300aa6.css">
+    <link rel="alternate" type="application/rss+xml" href="https://joreteg.com/rss">
+  <link rel="apple-touch-icon-precomposed" href="/avatar.png"><link rel="shortcut icon" href="/avatar.png"></head>
+  <body>
+    <div id="app"><div data-reactroot=""><header><div><img src="https://static.joreteg.com/large_background.jpg" alt="Henrik speaking at a conference"></div><h2>Hi, I’m Henrik Joreteg</h2><p>Mobile web consultant, developer, and speaker</p><p><a href="/blog/all">posts</a><!-- react-text: 9 --> |<!-- /react-text --><!-- react-text: 10 --> <!-- /react-text --><a href="http://twitter.com/henrikjoreteg">twitter</a><!-- react-text: 12 --> |<!-- /react-text --><!-- react-text: 13 --> <!-- /react-text --><a href="mailto:henrik@joreteg.com">email</a><!-- react-text: 15 --> |<!-- /react-text --><!-- react-text: 16 --> <!-- /react-text --><a href="http://consulting.joreteg.com">hire</a><!-- react-text: 18 --> |<!-- /react-text --><!-- react-text: 19 --> <!-- /react-text --><a href="https://reduxbook.com">book</a><!-- react-text: 21 --> |<!-- /react-text --><!-- react-text: 22 --> <!-- /react-text --><a href="https://xchart.com">my startup: Xchart.com</a></p></header><main><article class="post-wrapper"><h1><a href="/blog/using-fixtures-sqlite3-for-dev-django">Using Fixtures and SQLite for easy dev in Django</a></h1><hr><aside><span class="name"><!-- react-text: 31 -->Last updated: <!-- /react-text --><!-- react-text: 32 -->13 Nov 2009<!-- /react-text --></span></aside><section><p>When I’m building out a new app I don’t want to deal with setting up databases or repeatedly entering dummy data if I make changes to my models. Django fixtures and SQLite to the rescue!</p><p>Here’s how I do it:</p><p>In my <code>settings.py</code> here are my relevant db settings:</p><pre><code># create site root variable
+import os 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+DATABASE_ENGINE = 'sqlite3'
+DATABASE_NAME = os.path.join(SITE_ROOT, 'dev.db')
+DATABASE_USER = ''
+DATABASE_PASSWORD = ''
+</code></pre><p>Now, when I define my <code>models.py</code> and then run <code>python manage.py syncdb</code>, Django will create all the tables for me based on my models and put the entire database in a single self-contained file called <code>dev.db</code> at the root of my project folder.</p><p>Then I can enter my test data in the amazing auto-generated django admin.</p><p>Now, to create my fixtures, all I have to do it run:</p><pre><code>python manage.py dumpdata --indent=4 &gt; my_app_name/fixtures/initial_data.json
+</code></pre><p>(If your django app doesn’t already have a “fixtures” directory, you’ll have to create it first.)</p><p>This command will write all your data to a JSON file. The <code>--indent=4</code> flag is just so it’s easier to read. But after running this command look in your fixtures folder you’ll see a <code>initial_data.json</code> file that looks something like this:</p><pre><code>[
+  {
+    "model": "myapp.person",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Lennon"
+    }
+  },
+  {
+    "model": "myapp.person",
+    "pk": 2,
+    "fields": {
+      "first_name": "Paul",
+      "last_name": "McCartney"
+    }
+  }
+]
+</code></pre><p>But here’s the kicker… now, if for some reason you need to delete your entire <code>dev.db</code> database, all you have to do is run <code>python manage.py syncdb</code>, and it will automatically re-inflate the database with all your test data! Pretty freakin’ sweet eh? (no I’m not canadian).</p><p>Obviously, if you make changes to your models that the dummy data incorrect, this trick won’t help you much. But it’s perfect for the models that probably won’t change so much during development.</p><p>So, thanks to Django you can now quickly whip up a prototype without having to build a database or worry about database drivers, AND you can even completely delete your database without losing all your test/dummy data. So sweet!</p><p>This one deserves the #awesomecode tag IMHO.</p></section><footer><hr><h4>Thanks for reading, you may want to:</h4><ul><li><a href="https://reduxbook.com">read my new book Human Redux</a></li><li><a href="http://twitter.com/henrikjoreteg">follow me on twitter</a></li><li><a href="http://consulting.joreteg.com">read about my consulting services</a></li><li><a href="/blog/all">see my other posts</a></li><li><a href="https://gumroad.com/henrikjoreteg/follow">get an email when I ship new stuff</a></li></ul></footer></article></main></div></div>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//d1l6p2sc9645hc.cloudfront.net/tracker.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-1196801-4"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag("js", new Date());
+gtag("config", "UA-1196801-4");
+
+</script>
+    <script>!function(g, s, q, r, d) {
+    r = g[r] = g[r] || function() {
+        (r.q = r.q || []).push(arguments);
+    };
+    d = s.createElement(q);
+    q = s.getElementsByTagName(q)[0];
+    d.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+    q.parentNode.insertBefore(d, q);
+}(window, document, "script", "_gs");
+_gs("GSN-892886-O");
+
+</script>
+  
+
+</body></html>

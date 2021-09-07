@@ -3,34 +3,27 @@ import Header from "./header";
 import Post from "./post";
 import Home from "./home";
 import Blog from "./blog";
-import FourOhFour from "./404";
 
 export default class Index extends Component {
   render() {
-    const { posts, url } = this.props;
+    const { posts } = this.props;
+    const url = window.location.pathname;
 
     let page;
     let headerHeight = "short";
 
     let fallbackTitle = "Henrik Joreteg's Blog";
 
-    if (!url || url === "/") {
+    console.log("URL", url);
+
+    if (url === "/") {
       document.title = fallbackTitle;
       headerHeight = "full";
       page = <Home posts={posts.slice(0, 5)} />;
-    }
-
-    if (!page && url === "/blog/all") {
+    } else if (url === "/blog/all") {
       document.title = fallbackTitle;
       page = <Blog posts={posts} />;
-    }
-
-    if (!page && url === "/404") {
-      document.title = `Page not found. ${fallbackTitle}`;
-      page = <FourOhFour />;
-    }
-
-    if (!page) {
+    } else if (url.startsWith("/blog")) {
       const found = posts.find((post) => post.url === url);
       if (found) {
         document.title = found.title || fallbackTitle;

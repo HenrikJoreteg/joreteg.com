@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>How to magically run stuff when you're near your Mac... or not</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.b9300aa6.css">
+    <link rel="alternate" type="application/rss+xml" href="https://joreteg.com/rss">
+  <link rel="apple-touch-icon-precomposed" href="/avatar.png"><link rel="shortcut icon" href="/avatar.png"></head>
+  <body>
+    <div id="app"><div data-reactroot=""><header><div><img src="https://static.joreteg.com/large_background.jpg" alt="Henrik speaking at a conference"></div><h2>Hi, I’m Henrik Joreteg</h2><p>Mobile web consultant, developer, and speaker</p><p><a href="/blog/all">posts</a><!-- react-text: 9 --> |<!-- /react-text --><!-- react-text: 10 --> <!-- /react-text --><a href="http://twitter.com/henrikjoreteg">twitter</a><!-- react-text: 12 --> |<!-- /react-text --><!-- react-text: 13 --> <!-- /react-text --><a href="mailto:henrik@joreteg.com">email</a><!-- react-text: 15 --> |<!-- /react-text --><!-- react-text: 16 --> <!-- /react-text --><a href="http://consulting.joreteg.com">hire</a><!-- react-text: 18 --> |<!-- /react-text --><!-- react-text: 19 --> <!-- /react-text --><a href="https://reduxbook.com">book</a><!-- react-text: 21 --> |<!-- /react-text --><!-- react-text: 22 --> <!-- /react-text --><a href="https://xchart.com">my startup: Xchart.com</a></p></header><main><article class="post-wrapper"><h1><a href="/blog/magically-run-stuff-when-near-mac-or-not">How to magically run stuff when you're near your Mac... or not</a></h1><hr><aside><span class="name"><!-- react-text: 31 -->Last updated: <!-- /react-text --><!-- react-text: 32 -->7 Aug 2010<!-- /react-text --></span></aside><section><p>or not" old_url: http://joreteg.com/post/918116737/magically-run-stuff-when-near-mac-or-not ...</p><h2>What you need</h2><p></p><ul><li>A Mac</li></ul><p></p><p></p><li>Some type of bluetooth device you always have with you (let’s get real, if you’ve got a mac you’re using an iPhone)</li><p></p><h2>Step 1.</h2><p></p><p>Download and install <a href="http://code.google.com/p/reduxcomputing-proximity/downloads/list">Proximity</a>:</p><p><img src="http://38.media.tumblr.com/tumblr_l6shfw5Qjg1qzx3i9.png" alt="proximity download screenshot"></p><h2>Step 2.</h2><p>Open AppleScript editor and create a script to run when you’re near your computer. Mine is super simple. It just turns off the screen saver and sets my chat status in “Adium” (if it’s running) to available. But obviously you could do anything you can do in AppleScript. Mine looks something like this:</p><p></p><hr><pre><code>tell application "ScreenSaverEngine" to quit</code></pre><p></p><p>if appIsRunning("Adium") then tell application "Adium" to go available end if</p><p>on appIsRunning(appName) tell application "System Events" to (name of processes) contains appName end appIsRunning</p><p></p><hr><p></p><p>And create another one for when you’re away. Once again mine’s super simple:</p><p></p><p></p><hr><pre><code>tell application "ScreenSaverEngine" to activate</code></pre><p></p><p>if appIsRunning("Adium") then tell application "Adium" to go away with message "Appears to have stepped away for a bit." end if</p><p>on appIsRunning(appName) tell application "System Events" to (name of processes) contains appName end appIsRunning</p><p></p><hr><p></p><p>I saved these two scripts in a “Scripts” folder I created in my home directory (fancy that!).</p><p></p><h2>Step 3.</h2><p>Now all you have to do is give tell Proximity which script to run when and which bluetooth device you want it to look for. If Proximity is running you’ll see a small (somewhat ugly) bluetooth lookin’ icon in your toolbar. Click it to open preferences. My preferences look like this:</p><p><img src="http://33.media.tumblr.com/tumblr_l6si3p8dYg1qzx3i9.png" alt="proximity preferences"></p><h2>Step 4.</h2><p>Tell <a href="http://twitter.com/HenrikJoreteg">@HenrikJoreteg</a> on twitter that it worked for you and that you’d give him a high-five if you were within reasonable high-five range.</p></section><footer><hr><h4>Thanks for reading, you may want to:</h4><ul><li><a href="https://reduxbook.com">read my new book Human Redux</a></li><li><a href="http://twitter.com/henrikjoreteg">follow me on twitter</a></li><li><a href="http://consulting.joreteg.com">read about my consulting services</a></li><li><a href="/blog/all">see my other posts</a></li><li><a href="https://gumroad.com/henrikjoreteg/follow">get an email when I ship new stuff</a></li></ul></footer></article></main></div></div>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="//d1l6p2sc9645hc.cloudfront.net/tracker.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-1196801-4"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag("js", new Date());
+gtag("config", "UA-1196801-4");
+
+</script>
+    <script>!function(g, s, q, r, d) {
+    r = g[r] = g[r] || function() {
+        (r.q = r.q || []).push(arguments);
+    };
+    d = s.createElement(q);
+    q = s.getElementsByTagName(q)[0];
+    d.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+    q.parentNode.insertBefore(d, q);
+}(window, document, "script", "_gs");
+_gs("GSN-892886-O");
+
+</script>
+  
+
+</body></html>

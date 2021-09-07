@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel src/index.html --no-hmr",
     "build-app": "parcel build src/index.html",
     "build-rss": "node -r esm lib/build-rss",
-    "build": "npm run getdata && npm run build-app && npm run copy-includes && npm run build-rss && npm run prerender",
+    "build": "rm -rf public dist && npm run getdata && npm run build-app && npm run copy-includes && npm run build-rss && npm run prerender",
     "copy-includes": "node -r esm lib/copy-includes",
     "stage": "npm version patch && git push origin stage",
     "getdata": "node lib/extract-data",
-    "prerender": "start-server-and-test serve 8000 puppeteer",
+    "prerender": "start-server-and-test start 1234 puppeteer",
     "puppeteer": "node lib/prerender-site.js",
     "serve": "cd dist/ && ws --spa index.html"
   },
