@@ -9,8 +9,9 @@
     "copy-includes": "node -r esm lib/copy-includes",
     "stage": "npm version patch && git push origin stage",
     "getdata": "node lib/extract-data",
-    "prerender": "start-server-and-test start 1234 puppeteer",
-    "puppeteer": "node lib/prerender-site.js"
+    "prerender": "start-server-and-test serve 8000 puppeteer",
+    "puppeteer": "node lib/prerender-site.js",
+    "serve": "cd dist/ && ws --spa index.html"
   },
   "author": "Henrik Joreteg <henrik@joreteg.com>",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "http-server": "^0.10.0",
     "json-loader": "^0.5.7",
     "load-script": "^1.0.0",
+    "local-web-server": "5.1.1",
     "marked": "^0.3.5",
     "meta-marked": "^0.3.4",
     "minimize": "^1.7.2",
