@@ -1,9 +1,5 @@
 node_modules
 .DS_Store
 npm-debug.log
-public/*
-!public/_redirects
-!public/images
-!public/avatar.png
 dist
 .parcel-cache
