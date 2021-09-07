@@ -18,7 +18,7 @@ export default class Header extends Component {
           <a href="mailto:henrik@joreteg.com">email</a> |{" "}
           <a href="http://consulting.joreteg.com">hire</a> |{" "}
           <a href="https://reduxbook.com">book</a> |{" "}
-          <a href="https://anesthesiacharting.com">anesthesia charting pwa</a>
+          <a href="https://xchart.com">my startup: Xchart.com</a>
         </p>
       </header>
     );
@@ -27,5 +27,5 @@ export default class Header extends Component {
 
 Header.defaultProps = {
   title: "Hi, I’m Henrik Joreteg",
-  subtitle: "Mobile web consultant, developer, and speaker"
+  subtitle: "Mobile web consultant, developer, and speaker",
 };
