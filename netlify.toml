@@ -1,0 +1,9 @@
+[build]
+  publish = "dist/"
+  command = "npm run build"
+
+[[redirects]]
+  from = '/rss'
+  to = '/rss.xml'
+  status = 200
+
