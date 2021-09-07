@@ -6,4 +6,3 @@
   from = '/rss'
   to = '/rss.xml'
   status = 200
-
