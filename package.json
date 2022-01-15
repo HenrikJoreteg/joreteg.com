@@ -26,7 +26,7 @@
     "json-loader": "^0.5.7",
     "load-script": "^1.0.0",
     "local-web-server": "5.1.1",
-    "marked": "^0.3.5",
+    "marked": "^4.0.10",
     "meta-marked": "^0.3.4",
     "minimize": "^1.7.2",
     "moment": "^2.10.6",
