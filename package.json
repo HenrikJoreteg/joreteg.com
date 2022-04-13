@@ -17,7 +17,7 @@
   "author": "Henrik Joreteg <henrik@joreteg.com>",
   "license": "MIT",
   "dependencies": {
-    "async": "^1.4.2",
+    "async": "^3.2.2",
     "cheerio": "1.0.0-rc.10",
     "classnames": "^2.1.5",
     "esm": "3.2.25",
