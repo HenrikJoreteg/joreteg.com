@@ -36,7 +36,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "readify": "^1.3.0",
-    "recursive-readdir": "^1.2.1",
+    "recursive-readdir": "^2.2.3",
     "rss": "1.2.2",
     "slugger": "^1.0.1",
     "start-server-and-test": "1.14.0",
