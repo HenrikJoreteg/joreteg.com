@@ -22,7 +22,7 @@
     "classnames": "^2.1.5",
     "esm": "3.2.25",
     "fs-extra": "0.24.0",
-    "http-server": "^0.10.0",
+    "http-server": "^14.1.1",
     "json-loader": "^0.5.7",
     "load-script": "^1.0.0",
     "local-web-server": "5.1.1",
